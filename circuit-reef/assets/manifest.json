@@ -1,0 +1,9 @@
+{
+  "generator": "circuit-reef --export-assets",
+  "license": "GPL-3.0-or-later",
+  "master": "src/renderer.cpp and src/world.cpp; continuous procedural vector rigs",
+  "runtime_requires_atlases": false,
+  "koi": {"styles": 3, "frames": 32, "columns": 8, "cell": [320,192], "pivot": [198,94], "cycle_seconds": 2.45},
+  "jelly": {"styles": 2, "frames": 24, "columns": 8, "cell": [192,256], "pivot": [96,65], "cycle_seconds": 3.807991},
+  "note": "Atlases are inspection and reuse assets. Runtime animation is continuous, not frame-sheet playback. Jelly bell pulse loops; its independently moving tentacles need not exactly loop at this atlas boundary."
+}

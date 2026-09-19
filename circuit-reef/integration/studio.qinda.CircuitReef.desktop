@@ -1,0 +1,24 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Circuit Reef
+GenericName=Procedural Aquarium Screensaver
+Comment=Kind of Quiet: a cyberpunk aquarium for QindaQt
+Exec=circuit-reef --windowed
+Icon=studio.qinda.CircuitReef
+Terminal=false
+Categories=Graphics;Qt;
+Keywords=QindaQt;Screensaver;Aquarium;Koi;
+Actions=Screensaver;Private;Eco;
+
+[Desktop Action Screensaver]
+Name=Start Screensaver
+Exec=circuit-reef --fullscreen --all-screens
+
+[Desktop Action Private]
+Name=Start Without Telemetry
+Exec=circuit-reef --fullscreen --all-screens --private
+
+[Desktop Action Eco]
+Name=Start in Eco Mode
+Exec=circuit-reef --fullscreen --all-screens --eco

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Starward Reimagined
+Comment=CyberPengu and Ducké, beyond the shipping lanes
+Exec=starward --windowed
+Icon=applications-science
+Terminal=false
+Categories=Graphics;
+Actions=Fullscreen;Private;
+[Desktop Action Fullscreen]
+Name=Fullscreen screensaver
+Exec=starward --all-screens
+[Desktop Action Private]
+Name=Quiet, private screensaver
+Exec=starward --all-screens --private --eco

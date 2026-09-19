@@ -1,0 +1,229 @@
+{
+  "project": "Prism Circuit / Afterglow Grand Prix",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "coordinate_system": "Right-handed, Y-up. Karts face +Z. World dimensions use game metres.",
+  "master_sources": [
+    "src/models.cpp",
+    "src/meshes.cpp",
+    "src/track.cpp",
+    "src/director.cpp",
+    "shaders/"
+  ],
+  "export_seed": 41,
+  "course": "prism",
+  "static_exports_only": true,
+  "animation": "Hierarchy, analytic articulation, continuous wheel/steering/suspension and shader effects are in C++/GLSL, not in OBJ.",
+  "models": [
+    {
+      "name": "axi-axolotl-kart",
+      "obj": "models/axi-axolotl-kart.obj",
+      "mtl": "models/axi-axolotl-kart.mtl",
+      "v": 64401,
+      "vt": 64401,
+      "vn": 64401,
+      "triangles": 103248,
+      "parts": 199,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.377813,
+        1.851418
+      ],
+      "sha256": "625191b8070f91da3114e702b3645d683db0ab0bf86afd9779200fa29baf8150"
+    },
+    {
+      "name": "cache-raccoon-kart",
+      "obj": "models/cache-raccoon-kart.obj",
+      "mtl": "models/cache-raccoon-kart.mtl",
+      "v": 63960,
+      "vt": 63960,
+      "vn": 63960,
+      "triangles": 103360,
+      "parts": 193,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.4142,
+        1.851418
+      ],
+      "sha256": "fbd96811a010dfc40bc3dcdc5c38c4c873068d75729167ed2d578d2f423861b0"
+    },
+    {
+      "name": "cyberpengu-kart",
+      "obj": "models/cyberpengu-kart.obj",
+      "mtl": "models/cyberpengu-kart.mtl",
+      "v": 59963,
+      "vt": 59963,
+      "vn": 59963,
+      "triangles": 95920,
+      "parts": 188,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.3596,
+        1.851418
+      ],
+      "sha256": "e1d802860134fa0f2f61c112e765edcb40b9524cf53c1ffd26ea4a0b6072f5b3"
+    },
+    {
+      "name": "ducke-kart",
+      "obj": "models/ducke-kart.obj",
+      "mtl": "models/ducke-kart.mtl",
+      "v": 53898,
+      "vt": 53898,
+      "vn": 53898,
+      "triangles": 84400,
+      "parts": 181,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.3829,
+        1.851418
+      ],
+      "sha256": "e0c41dc77c3ae1e74e529d35a8a47e2b557f077f8850246737aa845072c1a65f"
+    },
+    {
+      "name": "hex-cat-kart",
+      "obj": "models/hex-cat-kart.obj",
+      "mtl": "models/hex-cat-kart.mtl",
+      "v": 61762,
+      "vt": 61762,
+      "vn": 61762,
+      "triangles": 98976,
+      "parts": 193,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.774951,
+        1.851418
+      ],
+      "sha256": "594b1ce6eee371cf8c34cdf4dd4eb4d8e1b5d96bf5599ca49cb5d5f1f64e2240"
+    },
+    {
+      "name": "mochi-rabbit-kart",
+      "obj": "models/mochi-rabbit-kart.obj",
+      "mtl": "models/mochi-rabbit-kart.mtl",
+      "v": 59997,
+      "vt": 59997,
+      "vn": 59997,
+      "triangles": 95808,
+      "parts": 188,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        3.107413,
+        1.851418
+      ],
+      "sha256": "11059fb6ba0f3a00d031ec2a056b876ce36fd1273b054f80c5437248fb2a5d72"
+    },
+    {
+      "name": "patches-red-panda-kart",
+      "obj": "models/patches-red-panda-kart.obj",
+      "mtl": "models/patches-red-panda-kart.mtl",
+      "v": 64569,
+      "vt": 64569,
+      "vn": 64569,
+      "triangles": 104480,
+      "parts": 194,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.403927,
+        1.851418
+      ],
+      "sha256": "a9713938b9024bbe96a80cd372e2d41d7a209295b6dca512bc3931cf183a2de8"
+    },
+    {
+      "name": "prism-start-arch",
+      "obj": "models/prism-start-arch.obj",
+      "mtl": "models/prism-start-arch.mtl",
+      "v": 5516,
+      "vt": 5516,
+      "vn": 5516,
+      "triangles": 8064,
+      "parts": 25,
+      "bounds_min": [
+        -8.027,
+        -0.25,
+        -0.553
+      ],
+      "bounds_max": [
+        8.027,
+        6.82925,
+        0.5485
+      ],
+      "sha256": "a940d07e0214140415b4eefc4e0442bed7bfc3135d93fe063d91140fa5e60dfa"
+    },
+    {
+      "name": "prismatic-track",
+      "obj": "models/prismatic-track.obj",
+      "mtl": "models/prismatic-track.mtl",
+      "v": 22117,
+      "vt": 22117,
+      "vn": 22117,
+      "triangles": 39000,
+      "parts": 2,
+      "bounds_min": [
+        -116.5938,
+        -32.12468,
+        -136.3078
+      ],
+      "bounds_max": [
+        143.6028,
+        31.38919,
+        136.3062
+      ],
+      "sha256": "93067cdd272f2573e5f224ebb0c9d807d6768f30a9f6f5201a05275046511564"
+    },
+    {
+      "name": "vix-fox-kart",
+      "obj": "models/vix-fox-kart.obj",
+      "mtl": "models/vix-fox-kart.mtl",
+      "v": 62371,
+      "vt": 62371,
+      "vn": 62371,
+      "triangles": 100096,
+      "parts": 194,
+      "bounds_min": [
+        -1.446846,
+        0.01000002,
+        -1.95
+      ],
+      "bounds_max": [
+        1.446846,
+        2.826314,
+        1.851418
+      ],
+      "sha256": "2a8376ac31e1420b75dc845014f61337fb154708cac8360c94ae3ab9135d9b1c"
+    }
+  ]
+}

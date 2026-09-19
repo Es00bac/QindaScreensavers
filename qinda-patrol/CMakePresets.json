@@ -1,0 +1,10 @@
+{
+  "version":3,
+  "configurePresets":[
+    {"name":"desktop","generator":"Ninja","binaryDir":"${sourceDir}/build/desktop","cacheVariables":{"CMAKE_BUILD_TYPE":"Release","BUILD_TESTING":"ON"}},
+    {"name":"headless","generator":"Ninja","binaryDir":"${sourceDir}/build/headless","cacheVariables":{"CMAKE_BUILD_TYPE":"Release","PATROL_BUILD_DESKTOP":"OFF","BUILD_TESTING":"ON"}},
+    {"name":"quick","inherits":"desktop","binaryDir":"${sourceDir}/build/quick","cacheVariables":{"PATROL_BUILD_QUICK":"ON"}}
+  ],
+  "buildPresets":[{"name":"desktop","configurePreset":"desktop"},{"name":"headless","configurePreset":"headless"},{"name":"quick","configurePreset":"quick"}],
+  "testPresets":[{"name":"desktop","configurePreset":"desktop","output":{"outputOnFailure":true}},{"name":"headless","configurePreset":"headless","output":{"outputOnFailure":true}}]
+}

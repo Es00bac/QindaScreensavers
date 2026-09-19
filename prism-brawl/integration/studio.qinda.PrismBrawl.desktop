@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=Prism Brawl
+Comment=Autonomous cyber-animal platform-fighting screensaver
+Exec=prism-brawl --windowed
+Icon=studio.qinda.PrismBrawl
+Terminal=false
+Categories=Game;ActionGame;
+Keywords=QindaQt;screensaver;cyberpunk;platform;fighter;
+Actions=Fullscreen;Quiet;
+
+[Desktop Action Fullscreen]
+Name=Fullscreen on all displays
+Exec=prism-brawl --all-screens
+
+[Desktop Action Quiet]
+Name=Lower-power visual
+Exec=prism-brawl --all-screens --eco --mute --no-hud --brightness 0.75

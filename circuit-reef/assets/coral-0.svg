@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="300" viewBox="0 0 256 300">
+<defs>
+<linearGradient id="linear-pattern-0" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-43.398386" y2="-139.5" gradientTransform="matrix(1, 0, 0, 1, 128, 295)">
+<stop offset="0" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.0385"/>
+<stop offset="1" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.266"/>
+</linearGradient>
+<linearGradient id="linear-pattern-1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-1.96499" y2="-168.75" gradientTransform="matrix(1, 0, 0, 1, 128, 295)">
+<stop offset="0" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.0385"/>
+<stop offset="1" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.266"/>
+</linearGradient>
+<linearGradient id="linear-pattern-2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="28.506439" y2="-198" gradientTransform="matrix(1, 0, 0, 1, 128, 295)">
+<stop offset="0" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.0385"/>
+<stop offset="1" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.266"/>
+</linearGradient>
+<linearGradient id="linear-pattern-3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="49.853795" y2="-227.25" gradientTransform="matrix(1, 0, 0, 1, 128, 295)">
+<stop offset="0" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.0385"/>
+<stop offset="1" stop-color="rgb(35.686275%, 96.078431%, 83.921569%)" stop-opacity="0.266"/>
+</linearGradient>
+</defs>
+<path fill-rule="nonzero" fill="url(#linear-pattern-0)" d="M 123.5 295 C 92.578125 248.964844 69.601562 193.164062 84.601562 155.5 C 89.601562 190.375 111.578125 244.78125 123.5 295 Z M 123.5 295 "/>
+<path fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(35.686275%, 96.078431%, 83.921569%)" stroke-opacity="0.35" stroke-miterlimit="10" d="M -4.5 0 C -24.421875 -46.035156 -47.398438 -104.625 -43.398438 -139.5 " transform="matrix(1, 0, 0, 1, 128, 295)"/>
+<path fill-rule="nonzero" fill="url(#linear-pattern-1)" d="M 126.5 295 C 125.828125 239.3125 111.035156 171.8125 126.035156 126.25 C 131.035156 168.4375 144.828125 234.25 126.5 295 Z M 126.5 295 "/>
+<path fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(35.686275%, 96.078431%, 83.921569%)" stroke-opacity="0.35" stroke-miterlimit="10" d="M -1.5 0 C 8.828125 -55.6875 -5.964844 -126.5625 -1.964844 -168.75 " transform="matrix(1, 0, 0, 1, 128, 295)"/>
+<path fill-rule="nonzero" fill="url(#linear-pattern-2)" d="M 129.5 295 C 146.792969 229.660156 141.507812 150.460938 156.507812 97 C 161.507812 146.5 165.792969 223.71875 129.5 295 Z M 129.5 295 "/>
+<path fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(35.686275%, 96.078431%, 83.921569%)" stroke-opacity="0.35" stroke-miterlimit="10" d="M 1.5 0 C 29.792969 -65.339844 24.507812 -148.5 28.507812 -198 " transform="matrix(1, 0, 0, 1, 128, 295)"/>
+<path fill-rule="nonzero" fill="url(#linear-pattern-3)" d="M 132.5 295 C 150.816406 220.007812 162.855469 129.109375 177.855469 67.75 C 182.855469 124.5625 169.816406 213.191406 132.5 295 Z M 132.5 295 "/>
+<path fill="none" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(35.686275%, 96.078431%, 83.921569%)" stroke-opacity="0.35" stroke-miterlimit="10" d="M 4.5 0 C 33.816406 -74.992188 45.855469 -170.4375 49.855469 -227.25 " transform="matrix(1, 0, 0, 1, 128, 295)"/>
+</svg>

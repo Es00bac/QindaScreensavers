@@ -1,0 +1,288 @@
+{
+  "version": 2,
+  "license": "GPL-3.0-or-later",
+  "format": "static OBJ/MTL pose exports",
+  "runtime_master": "src/models.cpp and src/meshes.cpp",
+  "assets": [
+    {
+      "name": "asteroid-0",
+      "obj": "models/asteroid-0.obj",
+      "mtl": "models/asteroid-0.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.056283,
+          -0.902962,
+          -1.051998
+        ],
+        "maximum": [
+          1.054823,
+          0.8250564,
+          1.055199
+        ]
+      }
+    },
+    {
+      "name": "asteroid-1",
+      "obj": "models/asteroid-1.obj",
+      "mtl": "models/asteroid-1.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.079894,
+          -0.861324,
+          -1.018946
+        ],
+        "maximum": [
+          1.061836,
+          0.8936515,
+          1.070071
+        ]
+      }
+    },
+    {
+      "name": "asteroid-2",
+      "obj": "models/asteroid-2.obj",
+      "mtl": "models/asteroid-2.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.008116,
+          -0.9219364,
+          -1.05013
+        ],
+        "maximum": [
+          1.076207,
+          0.916993,
+          0.9945983
+        ]
+      }
+    },
+    {
+      "name": "asteroid-3",
+      "obj": "models/asteroid-3.obj",
+      "mtl": "models/asteroid-3.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.054459,
+          -0.9644915,
+          -1.050821
+        ],
+        "maximum": [
+          1.077149,
+          1.039097,
+          1.039129
+        ]
+      }
+    },
+    {
+      "name": "asteroid-4",
+      "obj": "models/asteroid-4.obj",
+      "mtl": "models/asteroid-4.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.022321,
+          -1.086955,
+          -1.024637
+        ],
+        "maximum": [
+          1.015637,
+          1.023307,
+          1.024407
+        ]
+      }
+    },
+    {
+      "name": "asteroid-5",
+      "obj": "models/asteroid-5.obj",
+      "mtl": "models/asteroid-5.mtl",
+      "vertices": 1519,
+      "triangles": 2880,
+      "parts": 1,
+      "bounds": {
+        "minimum": [
+          -1.107843,
+          -1.045532,
+          -0.9949893
+        ],
+        "maximum": [
+          1.037639,
+          1.056496,
+          1.059604
+        ]
+      }
+    },
+    {
+      "name": "cyberpengu-and-courier",
+      "obj": "models/cyberpengu-and-courier.obj",
+      "mtl": "models/cyberpengu-and-courier.mtl",
+      "vertices": 84276,
+      "triangles": 145768,
+      "parts": 170,
+      "bounds": {
+        "minimum": [
+          -3.990646,
+          -0.7696476,
+          -3.1
+        ],
+        "maximum": [
+          3.1,
+          2.778405,
+          3.1
+        ]
+      }
+    },
+    {
+      "name": "ducke-and-scout",
+      "obj": "models/ducke-and-scout.obj",
+      "mtl": "models/ducke-and-scout.mtl",
+      "vertices": 74305,
+      "triangles": 127048,
+      "parts": 160,
+      "bounds": {
+        "minimum": [
+          -3.990646,
+          -0.7696476,
+          -3.1
+        ],
+        "maximum": [
+          3.1,
+          2.778405,
+          3.1
+        ]
+      }
+    },
+    {
+      "name": "ember-dock",
+      "obj": "models/ember-dock.obj",
+      "mtl": "models/ember-dock.mtl",
+      "vertices": 95811,
+      "triangles": 141456,
+      "parts": 411,
+      "bounds": {
+        "minimum": [
+          -9.08,
+          -3.9,
+          -8.648225
+        ],
+        "maximum": [
+          10.085,
+          7.09,
+          8.639317
+        ]
+      }
+    },
+    {
+      "name": "freighter-08",
+      "obj": "models/freighter-08.obj",
+      "mtl": "models/freighter-08.mtl",
+      "vertices": 16576,
+      "triangles": 22920,
+      "parts": 90,
+      "bounds": {
+        "minimum": [
+          -6.792,
+          -0.85,
+          -1.797
+        ],
+        "maximum": [
+          6.48,
+          3.63,
+          1.797
+        ]
+      }
+    },
+    {
+      "name": "sentinel",
+      "obj": "models/sentinel.obj",
+      "mtl": "models/sentinel.mtl",
+      "vertices": 4340,
+      "triangles": 7416,
+      "parts": 10,
+      "bounds": {
+        "minimum": [
+          -1.453361,
+          -0.8972955,
+          -0.5
+        ],
+        "maximum": [
+          1.453361,
+          1.62,
+          0.61
+        ]
+      }
+    },
+    {
+      "name": "signal-capsule",
+      "obj": "models/signal-capsule.obj",
+      "mtl": "models/signal-capsule.mtl",
+      "vertices": 1788,
+      "triangles": 3280,
+      "parts": 3,
+      "bounds": {
+        "minimum": [
+          -0.3815615,
+          -0.54,
+          -0.43255
+        ],
+        "maximum": [
+          0.3815615,
+          0.54,
+          0.43255
+        ]
+      }
+    },
+    {
+      "name": "sleeping-archive",
+      "obj": "models/sleeping-archive.obj",
+      "mtl": "models/sleeping-archive.mtl",
+      "vertices": 53047,
+      "triangles": 58648,
+      "parts": 239,
+      "bounds": {
+        "minimum": [
+          -8.638867,
+          -8.1084,
+          -1.888215
+        ],
+        "maximum": [
+          8.403639,
+          8.461899,
+          1.9158
+        ]
+      }
+    },
+    {
+      "name": "starlight-sail",
+      "obj": "models/starlight-sail.obj",
+      "mtl": "models/starlight-sail.mtl",
+      "vertices": 49311,
+      "triangles": 61616,
+      "parts": 169,
+      "bounds": {
+        "minimum": [
+          -7.561434,
+          -0.2704536,
+          -4.0
+        ],
+        "maximum": [
+          2.1,
+          1.559636,
+          4.0
+        ]
+      }
+    }
+  ]
+}

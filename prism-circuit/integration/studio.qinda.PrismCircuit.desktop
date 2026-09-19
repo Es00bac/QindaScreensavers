@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=Prism Circuit
+GenericName=Autonomous 3D Racing Screensaver
+Comment=CyberPengu, Ducké and friends on a prismatic cyberpunk circuit
+Exec=prism-circuit --windowed
+Icon=studio.qinda.PrismCircuit
+Terminal=false
+Categories=Game;Simulation;
+Actions=Fullscreen;Eco;
+
+[Desktop Action Fullscreen]
+Name=Fullscreen Screensaver
+Exec=prism-circuit --all-screens
+
+[Desktop Action Eco]
+Name=Lower-power Screensaver
+Exec=prism-circuit --all-screens --eco

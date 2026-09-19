@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=Qinda Patrol
+Comment=A kind-of-cute autonomous cyberpunk screensaver
+Exec=qinda-patrol --preview
+Icon=qinda-patrol
+Terminal=false
+Categories=Graphics;Utility;
+Keywords=QindaQt;Screensaver;Penguin;Duck;System Monitor;
+Actions=Screensaver;Private;
+
+[Desktop Action Screensaver]
+Name=Start night patrol
+Exec=qinda-patrol --screensaver
+
+[Desktop Action Private]
+Name=Start private night patrol
+Exec=qinda-patrol --screensaver --no-metrics --eco

@@ -1,0 +1,10 @@
+#pragma once
+namespace sw::shaders {
+inline constexpr const char* mesh_vert=R"GLSL(@MESH_VERT@)GLSL";
+inline constexpr const char* mesh_frag=R"GLSL(@MESH_FRAG@)GLSL";
+inline constexpr const char* full_vert=R"GLSL(@FULL_VERT@)GLSL";
+inline constexpr const char* shadow_frag=R"GLSL(@SHADOW_FRAG@)GLSL";
+inline constexpr const char* sky_frag=R"GLSL(@SKY_FRAG@)GLSL";
+inline constexpr const char* blur_frag=R"GLSL(@BLUR_FRAG@)GLSL";
+inline constexpr const char* post_frag=R"GLSL(@POST_FRAG@)GLSL";
+}
