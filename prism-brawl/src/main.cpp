@@ -25,7 +25,7 @@ struct View {
  SDL_Window* window=nullptr;SDL_GLContext context=nullptr;std::unique_ptr<Renderer> renderer;
  ~View(){if(context&&window)SDL_GL_MakeCurrent(window,context);renderer.reset();if(context)SDL_GL_DeleteContext(context);if(window)SDL_DestroyWindow(window);}
 };
-void help(){std::cout<<R"HELP(PRISM BRAWL / NEON KNOCKOUT 1.0
+void help(){std::cout<<R"HELP(PRISM BRAWL / NEON KNOCKOUT 1.2.0
 A C++20 autonomous 3D platform-fighting screensaver for QindaQt.
 
   --windowed              Preview window (default)
@@ -36,11 +36,13 @@ A C++20 autonomous 3D platform-fighting screensaver for QindaQt.
   --screensaver           Alias for --fullscreen
   --screen N              Output index, starting at zero
   --size WxH              Default 1440x810; aspect-safe 3D viewport
-  --stage NAME            auto (default), prism, garden, rooftop
+  --stage NAME            auto, prism, garden, rooftop, bliss, compile, aurora, azure
+  --list-stages           List the seven arenas and their command-line names
   --fighters N            2, 4 (default), or 8 simultaneous fighters
   --seed N                Unsigned integer seed for reproducible matches
   --camera NAME           auto (default), fixed, close
   --showcase N            Inspect an isolated fighter, ID 0..7
+  --animation-demo        Cycle moves, taunts, launches and landings in showcase
   --start SECONDS         Simulate to a time, 0..7200
   --fps N                 Presentation cap, 10..240, default 60
   --eco                   30 fps, 2x MSAA, lower bloom
@@ -71,7 +73,7 @@ int main(int argc,char** argv){
   RenderOptions renderOpt;renderOpt.metrics=false;SceneOptions options;
   int width=1440,height=810,screen=0,fps=60,frames=0,benchmark=0,stage=-1,count=4;
   double start=0,quit=0,logSeconds=-1;
-  bool screenSet=false,listScreens=false,sound=true;float volume=.20f;
+  bool screenSet=false,listScreens=false,listStages=false,sound=true;float volume=.20f;
   bool fullscreen=false,all=false,haveSeed=false;
   std::uint64_t seed=41;std::string snapshot,raw,exportDir,captureDir;
   for(int i=1;i<argc;i++){
@@ -80,6 +82,7 @@ int main(int argc,char** argv){
    else if(a=="--windowed"){fullscreen=false;all=false;}
    else if(a=="--capture-dir")captureDir=val();
    else if(a=="--list-screens")listScreens=true;
+   else if(a=="--list-stages")listStages=true;
    else if(a=="--fullscreen"||a=="--screensaver")fullscreen=true;
    else if(a=="--all-screens"){fullscreen=true;all=true;}
    else if(a=="--screen"){screen=integer(val(),0,63);screenSet=true;}
@@ -89,10 +92,13 @@ int main(int argc,char** argv){
    else if(a=="--fps")fps=integer(val(),10,240);
    else if(a=="--size"){auto s=val();auto p=s.find('x');if(p==std::string::npos)throw std::runtime_error("Use --size WIDTHxHEIGHT");width=integer(s.substr(0,p),320,8192);height=integer(s.substr(p+1),180,8192);}
    else if(a=="--seed"){auto text=val();auto result=std::from_chars(text.data(),text.data()+text.size(),seed);if(result.ec!=std::errc{}||result.ptr!=text.data()+text.size())throw std::runtime_error("Invalid unsigned seed");haveSeed=true;}
-   else if(a=="--stage"){auto s=val();if(s=="auto")stage=-1;else if(s=="prism")stage=0;else if(s=="garden")stage=1;else if(s=="rooftop")stage=2;else throw std::runtime_error("Unknown stage: "+s);}
+   else if(a=="--stage"){auto s=val();stage=-1;
+    if(s!="auto"){for(int j=0;j<StageCount;++j)if(s==Stages[j].key)stage=j;
+     if(stage<0)throw std::runtime_error("Unknown stage: "+s);}}
    else if(a=="--fighters"){count=integer(val(),2,8);if(count!=2&&count!=4&&count!=8)throw std::runtime_error("Use --fighters 2, 4 or 8");}
    else if(a=="--camera"){auto s=val();if(s=="auto")options.camera=Camera::Director;else if(s=="fixed")options.camera=Camera::Fixed;else if(s=="close")options.camera=Camera::Close;else throw std::runtime_error("Unknown camera: "+s);}
    else if(a=="--showcase"){options.gallery=true;options.galleryId=integer(val(),0,7);}
+   else if(a=="--animation-demo"){options.gallery=true;options.animationDemo=true;}
    else if(a=="--start")start=number(val(),0,7200);
    else if(a=="--eco"){fps=30;renderOpt.bloom=.16f;renderOpt.samples=2;}
    else if(a=="--no-msaa")renderOpt.samples=1;
@@ -109,13 +115,14 @@ int main(int argc,char** argv){
    else if(a=="--battle-log")logSeconds=number(val(),0,86400);
    else throw std::runtime_error("Unknown option: "+a);
   }
+  if(listStages){for(const auto& arena:Stages)std::cout<<arena.key<<"  "<<arena.name<<'\n';return 0;}
   if(!haveSeed)seed=std::random_device{}();
   if((frames>0)!=(!raw.empty()))throw std::runtime_error("Use --frames and --raw together");
   if(!exportDir.empty()){exportModels(exportDir,seed,stage<0?0:stage);std::cout<<"Models exported to "<<exportDir<<'\n';return 0;}
   Battle battle(seed,stage,count);
   if(logSeconds>=0){
    battle.advance(logSeconds);const auto& c=battle.counters;
-   std::cout<<"{\"seed\":"<<seed<<",\"seconds\":"<<logSeconds<<",\"fighters\":"<<count<<",\"ticks\":"<<c.ticks<<",\"hits\":"<<c.hits<<",\"blocks\":"<<c.blocks<<",\"knockouts\":"<<c.kos<<",\"jumps\":"<<c.jumps<<",\"recoveries\":"<<c.recoveries<<",\"specials\":"<<c.specials<<",\"grabs\":"<<c.grabs<<",\"rounds\":"<<c.rounds<<",\"pickups\":"<<c.pickups<<"}\n";return 0;
+   std::cout<<"{\"seed\":"<<seed<<",\"seconds\":"<<logSeconds<<",\"fighters\":"<<count<<",\"ticks\":"<<c.ticks<<",\"hits\":"<<c.hits<<",\"blocks\":"<<c.blocks<<",\"knockouts\":"<<c.kos<<",\"jumps\":"<<c.jumps<<",\"recoveries\":"<<c.recoveries<<",\"specials\":"<<c.specials<<",\"grabs\":"<<c.grabs<<",\"rounds\":"<<c.rounds<<",\"pickups\":"<<c.pickups<<",\"taunts\":"<<c.taunts<<",\"tumbles\":"<<c.tumbles<<",\"hard_landings\":"<<c.hardLandings<<",\"reactions\":"<<c.reactions<<"}\n";return 0;
   }
   bool exporting=!snapshot.empty()||frames>0;if(exporting){all=false;fullscreen=false;}
   if(fullscreen||listScreens){

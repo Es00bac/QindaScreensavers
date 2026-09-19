@@ -9,7 +9,12 @@ struct Mesh { std::string name; std::vector<Vertex> v; std::vector<std::uint32_t
 struct Material { V3 color; float emission=0,rough=.45f,metal=.1f,kind=0; };
 struct Instance { M4 model; V4 color; V4 surface; };
 struct Batch { Mesh mesh; std::vector<Instance> instances; };
-enum Primitive {Sphere,Box,Torus,Cylinder,Hull,Wing,Rock0,Rock1,Rock2,Rock3,Rock4,Rock5,Monolith,Manta,Sideplate,Ribbon,RoadSurface,RoadShell,Ear,Count};
+enum Primitive {Sphere,Box,Torus,Cylinder,Hull,Wing,Rock0,Rock1,Rock2,Rock3,Rock4,Rock5,Monolith,Manta,Sideplate,Ribbon,RoadSurface,RoadShell,Ear,Terrain,Fold,Leaf,Crystal,Count};
+inline V3 mineralFold(float u,float v){
+ float z=v*2-1;
+ float y=.24f*std::sin(u*2*pi)+.90f*std::exp(-std::pow((u-.80f)*4.4f,2.f))+.55f*(1-z*z)-.23f*z;
+ return {(u-.5f)*2,y,z};
+}
 struct Frame {
  std::array<Batch,Count> batches;
  V3 eye,target,up{0,1,0},pengu,ducke; M4 pship,dship;

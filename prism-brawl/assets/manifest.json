@@ -1,193 +1,259 @@
 {
   "project": "Prism Brawl",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "license": "GPL-3.0-or-later",
-  "model_sets": 11,
+  "model_sets": 15,
   "runtime_art_source": [
     "src/models.cpp",
+    "src/animation.cpp",
     "src/meshes.cpp",
+    "src/stages.cpp",
     "src/director.cpp",
     "shaders/"
   ],
-  "export_limits": "Static geometry/material snapshots. No rig, animation, shader effect or whole-background export. Runtime generates all art from the C++ source.",
+  "export_limits": "Static geometry/material snapshots. No rig, animation, shader effect or whole-background export. Runtime generates all art from C++ and GLSL.",
   "assets": [
     {
-      "path": "assets/models/afterglow-rooftop.obj",
-      "bytes": 3849988,
-      "sha256": "6bf685093be8c5594b9ef812673bd4666b505b4f3399b07aefc93a1e1582ec63"
-    },
-    {
       "path": "assets/models/afterglow-rooftop.mtl",
-      "bytes": 15071,
-      "sha256": "23ae5f537e12c3e52c766393ebe954b928b3954339d3e1ec6288d3c44ed80697"
+      "bytes": 13660,
+      "sha256": "d513bf79258c3c845133d5cc7e29e25f44c8dd9bb1661d6fba5a2416e0d8275f"
     },
     {
-      "path": "assets/models/axi-axolotl-fighter.obj",
-      "bytes": 5164164,
-      "sha256": "bd5515ef11956b671708e0095e683bb0f973168c27b1452a1405105ba53cc009"
+      "path": "assets/models/afterglow-rooftop.obj",
+      "bytes": 6481286,
+      "sha256": "ed09d9f6b73c91df6f0beacd78f2f32cab4f43e34b555c76e6864605e0191bc3"
+    },
+    {
+      "path": "assets/models/aurora-glacier.mtl",
+      "bytes": 13373,
+      "sha256": "fa0936792cbd1e23d225b5c9fd0a7de6868165a8476b3983f187b247c8f4c777"
+    },
+    {
+      "path": "assets/models/aurora-glacier.obj",
+      "bytes": 5525038,
+      "sha256": "2db0a9d1317ac82e073c3066f58272f4a3325a573655a4cebb2abb07ddab36cc"
     },
     {
       "path": "assets/models/axi-axolotl-fighter.mtl",
-      "bytes": 4904,
-      "sha256": "915e33d42683f5c6e7fb0af887183f7915f3bea540f8d2ad389fd6089a09242b"
+      "bytes": 5046,
+      "sha256": "903aa95854e04814bf92ef05962e6fe9587887bd68e8875083e5761b6bf3a1ad"
     },
     {
-      "path": "assets/models/cache-raccoon-fighter.obj",
-      "bytes": 5125085,
-      "sha256": "f46bd6f91b1255493e28888a14aae7f4720e789e437b5e7c5db3a31319e2d96a"
+      "path": "assets/models/axi-axolotl-fighter.obj",
+      "bytes": 9373994,
+      "sha256": "93ae616603c2876f3e721890b43bac57bbd706ab2ea7be384e6ebdb791c5ce06"
+    },
+    {
+      "path": "assets/models/azure-fold.mtl",
+      "bytes": 12423,
+      "sha256": "293cce6ea5bf7c3bb15a4aad50dd8dc057054da3fff9d2304c9401a78f9407c7"
+    },
+    {
+      "path": "assets/models/azure-fold.obj",
+      "bytes": 8469715,
+      "sha256": "0e54c6aec4531ed98b6900880a3d21295da1fd0cf58a769d03d531fc80de3312"
+    },
+    {
+      "path": "assets/models/bliss-circuit.mtl",
+      "bytes": 20110,
+      "sha256": "5e8e07aa1de2bdaea6d335fbee386fbc5e9101535a4b71a0a8fb0fe627570bc6"
+    },
+    {
+      "path": "assets/models/bliss-circuit.obj",
+      "bytes": 12036349,
+      "sha256": "e2b0323d5da6cd3123f65eddf16b9a71da79222b78543f6a016fb8b94f55ef2a"
     },
     {
       "path": "assets/models/cache-raccoon-fighter.mtl",
-      "bytes": 4498,
-      "sha256": "8f841dd040aa5e533dbb484aff46c86e8fa9c06ec93cc7bcbce8f7907194ee8d"
+      "bytes": 4782,
+      "sha256": "eec65222712f37f6006f6d63e64309aabdb8eacfb1e9f48a4b502e417214a2a5"
     },
     {
-      "path": "assets/models/cyberpengu-fighter.obj",
-      "bytes": 4440786,
-      "sha256": "28c95d7c6d0fdfafb295337af5f034a76d63ff34885193436d64406c105e853b"
+      "path": "assets/models/cache-raccoon-fighter.obj",
+      "bytes": 9509246,
+      "sha256": "efcc8e93d63e8eca328c4ab0e293f8ebad6126c1e051b635312e3bb2b08ab2ca"
+    },
+    {
+      "path": "assets/models/compile-club.mtl",
+      "bytes": 15961,
+      "sha256": "ba75f0fa375ddc86a28f1c02b6923ce4cade433ff362a63fe9ecbed07256ab30"
+    },
+    {
+      "path": "assets/models/compile-club.obj",
+      "bytes": 7693459,
+      "sha256": "e98cd855b809cef0fa46c2a31a5c472dad09c81d16b16a115d46cf558a218483"
     },
     {
       "path": "assets/models/cyberpengu-fighter.mtl",
-      "bytes": 4696,
-      "sha256": "79e6dd6a6fae579c721687655e1ebfad6d0694f7343df47d90c405ea8509f57e"
+      "bytes": 4832,
+      "sha256": "b16e440581ddaf69cd072ceeca0a3752ba772945412d11da4e3814988e9f5249"
     },
     {
-      "path": "assets/models/ducke-fighter.obj",
-      "bytes": 3249179,
-      "sha256": "7774efced265f351b3fda1a4b490588921dd8007530390dbe6312d28e31eebc6"
+      "path": "assets/models/cyberpengu-fighter.obj",
+      "bytes": 7916906,
+      "sha256": "9293f6348b815918362cd7021e7418b3bd521edbcea83133fa54e25dbd9c2442"
     },
     {
       "path": "assets/models/ducke-fighter.mtl",
       "bytes": 3728,
-      "sha256": "33816267d9261bddb7dd5ccc61c863a0a1a2f2328b1e2b9b9cb4a917834fcc32"
+      "sha256": "8fb39571377f8341ab54b28a124d37cc74806370d3e52e69fd0b1fa1e5ffa708"
     },
     {
-      "path": "assets/models/hex-cat-fighter.obj",
-      "bytes": 4684225,
-      "sha256": "71040d47073a534cc70416856d4cad1b580700d6f368da8defab554427b4d124"
+      "path": "assets/models/ducke-fighter.obj",
+      "bytes": 5664139,
+      "sha256": "63b914c16dc26e7f9f5e494e08dd91330496d629f106a245b26905d577ab3c98"
     },
     {
       "path": "assets/models/hex-cat-fighter.mtl",
-      "bytes": 4616,
-      "sha256": "f8d2a698fc5b4c79c8c36015e072c30ac1a2dff298fbe420e9f1d30876e99ff2"
+      "bytes": 4900,
+      "sha256": "52b3da6ff808c7967a2bc8e4d77dd6313166c8a51f795d13abda9d8e65b2dd8e"
     },
     {
-      "path": "assets/models/mochi-rabbit-fighter.obj",
-      "bytes": 4389800,
-      "sha256": "d8a1e692a47a5e6f151f5e55193b953120138a3b64d512af7fc33bb8569728e2"
+      "path": "assets/models/hex-cat-fighter.obj",
+      "bytes": 8431204,
+      "sha256": "414e22760bfecf568c4d4c4c5962be70a56b379c15f61f8c2e975ac1596293cb"
     },
     {
       "path": "assets/models/mochi-rabbit-fighter.mtl",
-      "bytes": 4134,
-      "sha256": "ea2e0ed64413bedec0f3d7f8942d2ef6c214345bffbf924ac5c286c9c073f42e"
+      "bytes": 4418,
+      "sha256": "19ffad87c6a19688fcdb5ff62d0974e5dec7f59f9ed571303c10a8191a57df7e"
     },
     {
-      "path": "assets/models/patches-red-panda-fighter.obj",
-      "bytes": 5236670,
-      "sha256": "8fc01476ce891362d38d166719f8d27052148789e1f4ab684019a73445af45f3"
+      "path": "assets/models/mochi-rabbit-fighter.obj",
+      "bytes": 8025611,
+      "sha256": "216caf9caae0cb8bdd2680330deb42e66ba1757a2b837e7e006e7c4933d165e4"
     },
     {
       "path": "assets/models/patches-red-panda-fighter.mtl",
-      "bytes": 4565,
-      "sha256": "0d1897c54de1f8f4d8550dc0d882d12679fc08a50d5697bb2b08fb014c42a616"
+      "bytes": 4849,
+      "sha256": "866b2a35cb3d2ffb362c862d0e4d8334f7ee14d0be5e3771f5a394299211457b"
     },
     {
-      "path": "assets/models/prism-terminal.obj",
-      "bytes": 3844497,
-      "sha256": "0d8259ef50c9a59f1c4ff09f795d3b6d8161c7504af64bd73701c3c959d2a8b8"
+      "path": "assets/models/patches-red-panda-fighter.obj",
+      "bytes": 9725802,
+      "sha256": "ef8517023642a80ee00c335e231b5c54d485964b7e0b223d949bb176033efcd5"
     },
     {
       "path": "assets/models/prism-terminal.mtl",
-      "bytes": 15077,
-      "sha256": "e6a019094916b69d1670c9b2e6efc84ac2b9bd7b86c56c8e259c200cbe615b21"
+      "bytes": 11969,
+      "sha256": "8362749fcfefecd117f79f25a51d59948dadb530cf0733aed45ee1e2b4d43e36"
     },
     {
-      "path": "assets/models/reactor-garden.obj",
-      "bytes": 3841017,
-      "sha256": "ed57de8b5537f23916f24b14273bf65da12d5ffedc6e52cd55cbb0d98bf699bf"
+      "path": "assets/models/prism-terminal.obj",
+      "bytes": 6818636,
+      "sha256": "e6f3633beefa2f527e6f5a63434032f6613ba766cdbc6326c608e6cfc0b7082e"
     },
     {
       "path": "assets/models/reactor-garden.mtl",
-      "bytes": 14971,
-      "sha256": "bca4b8611a666790db76f0a8b36ac56f9a1759e2568e582c578f9e9ee433b8b1"
+      "bytes": 20205,
+      "sha256": "4448ce5ab884ac27a16b4d9d1cc43f383bfe9e243b35e5c9b82f279c01e4797d"
     },
     {
-      "path": "assets/models/vix-fox-fighter.obj",
-      "bytes": 4801837,
-      "sha256": "b27e0cf3128c26b613caf12eab3cdeeaec2082f4d6a9e03ebd8d77b6cac2f039"
+      "path": "assets/models/reactor-garden.obj",
+      "bytes": 12031121,
+      "sha256": "9e6d536c6c2ee3a25af1d7ccba42c33c9398bd31aa144265af68bcdd0063f7b6"
     },
     {
       "path": "assets/models/vix-fox-fighter.mtl",
-      "bytes": 4552,
-      "sha256": "f2efa470f6889a93855da66eb7dd3ed65bd36265e68f41428a385edc617e38fb"
+      "bytes": 4836,
+      "sha256": "c777cb510d728e46016b87089c8b49ab28a51ef93f4151921cf2d606d669a737"
+    },
+    {
+      "path": "assets/models/vix-fox-fighter.obj",
+      "bytes": 8652878,
+      "sha256": "7651c211ed6cc96fc442ae67211d8d6eec2c6e76663c284f3939364025ead460"
     }
   ],
   "geometry": [
     {
       "name": "afterglow-rooftop",
-      "vertices": 30594,
-      "faces": 38640,
-      "materials": 187
+      "vertices": 47288,
+      "faces": 67008,
+      "materials": 180
+    },
+    {
+      "name": "aurora-glacier",
+      "vertices": 40688,
+      "faces": 56040,
+      "materials": 171
     },
     {
       "name": "axi-axolotl-fighter",
-      "vertices": 30356,
-      "faces": 52480,
-      "materials": 71
+      "vertices": 53412,
+      "faces": 96368,
+      "materials": 73
+    },
+    {
+      "name": "azure-fold",
+      "vertices": 55632,
+      "faces": 86208,
+      "materials": 164
+    },
+    {
+      "name": "bliss-circuit",
+      "vertices": 76004,
+      "faces": 120720,
+      "materials": 274
     },
     {
       "name": "cache-raccoon-fighter",
-      "vertices": 29915,
-      "faces": 52592,
-      "materials": 65
+      "vertices": 53851,
+      "faces": 97888,
+      "materials": 69
+    },
+    {
+      "name": "compile-club",
+      "vertices": 55520,
+      "faces": 79104,
+      "materials": 208
     },
     {
       "name": "cyberpengu-fighter",
-      "vertices": 26898,
-      "faces": 46240,
-      "materials": 67
+      "vertices": 45598,
+      "faces": 81488,
+      "materials": 69
     },
     {
       "name": "ducke-fighter",
-      "vertices": 19933,
-      "faces": 33616,
+      "vertices": 33257,
+      "faces": 58736,
       "materials": 54
     },
     {
       "name": "hex-cat-fighter",
-      "vertices": 27717,
-      "faces": 48208,
-      "materials": 65
+      "vertices": 48173,
+      "faces": 86784,
+      "materials": 69
     },
     {
       "name": "mochi-rabbit-fighter",
-      "vertices": 25952,
-      "faces": 45040,
-      "materials": 60
+      "vertices": 45828,
+      "faces": 82496,
+      "materials": 64
     },
     {
       "name": "patches-red-panda-fighter",
-      "vertices": 30524,
-      "faces": 53712,
-      "materials": 66
+      "vertices": 55040,
+      "faces": 100128,
+      "materials": 70
     },
     {
       "name": "prism-terminal",
-      "vertices": 30594,
-      "faces": 38640,
-      "materials": 187
+      "vertices": 46872,
+      "faces": 70080,
+      "materials": 156
     },
     {
       "name": "reactor-garden",
-      "vertices": 30594,
-      "faces": 38640,
-      "materials": 187
+      "vertices": 76004,
+      "faces": 120720,
+      "materials": 274
     },
     {
       "name": "vix-fox-fighter",
-      "vertices": 28326,
-      "faces": 49328,
-      "materials": 66
+      "vertices": 49362,
+      "faces": 89024,
+      "materials": 70
     }
   ]
 }

@@ -27,14 +27,14 @@ void exportModels(const std::string& directory,std::uint64_t seed,int course) {
     initialize(frame);
 
     (void)seed; (void)course;
-    for (int asset = 0; asset < 11; ++asset) {
+    for (int asset = 0; asset < MaxFighters+StageCount; ++asset) {
         for (auto& batch : frame.batches) batch.instances.clear();
         std::string name;
         if(asset<8){
             name=std::string(racerSlugs[asset])+"-fighter";
             Anim anim;fighterModel(frame,translate({0,.72f,0}),asset,0,anim);
         }else{
-            name=asset==8?"prism-terminal":asset==9?"reactor-garden":"afterglow-rooftop";
+            name=Stages[asset-MaxFighters].asset;
             stageModel(frame,asset-8,0,seed,false);
         }
 

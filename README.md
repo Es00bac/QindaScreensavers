@@ -10,7 +10,7 @@ scales. The 3D scenes preserve framing on portrait monitors.
 | Qinda Patrol | 0.2.0 | `qinda-patrol --screensaver --no-metrics` |
 | Circuit Reef | 1.1.0 | `circuit-reef --fullscreen --private` |
 | Prism Circuit | 1.1.0 | `prism-circuit --fullscreen` |
-| Prism Brawl | 1.1.0 | `prism-brawl --fullscreen` |
+| Prism Brawl | 1.2.0 | `prism-brawl --fullscreen` |
 | Starward | 2.1.0 | `starward --fullscreen` |
 
 Race and Brawl have synthesized stereo effects, enabled at 20% volume. Use

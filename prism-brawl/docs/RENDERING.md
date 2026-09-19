@@ -16,7 +16,10 @@ A headless simulation log and OBJ exports do not need a display.
 ```
 
 `--start` simulates forward to the requested time; it is not an isolated artist's
-pose override. Snapshots and videos therefore show actual battle states.
+pose override. Battle snapshots and videos therefore show actual battle states.
+The explicit `--showcase N --animation-demo` mode instead cycles authored rig
+inspection clips, including taunts, flailing launches and landings. Its 38.4-second
+cycle is described in [the animation notes](ANIMATION.md).
 
 ## Preview video
 

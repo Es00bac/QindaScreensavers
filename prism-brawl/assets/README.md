@@ -1,7 +1,7 @@
 # Original model exports
 
-`models/` contains eleven OBJ files with matching MTL files: eight upright
-fighters and three arena platform assemblies. Runtime assets and animation are
+`models/` contains fifteen OBJ files with matching MTL files: eight upright
+fighters and seven arena platform assemblies. Runtime assets and animation are
 procedurally generated in C++ and GLSL; these exports are for inspection and
 reuse, not dependencies of the executable.
 
