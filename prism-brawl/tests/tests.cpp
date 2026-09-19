@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "battle.hpp"
+#include "startup_stage.hpp"
+#include <fstream>
 #include <iostream>
 #include <stdexcept>
+#include <unistd.h>
 using namespace sw;
 namespace { unsigned long checks=0;void check(bool p,const char* msg){++checks;if(!p)throw std::runtime_error(msg);} }
 namespace sw {
@@ -118,6 +121,59 @@ int main(){try{
   for(int round=0;round<StageCount;++round){int stage=b.state().stage;check(!visited[stage],"automatic rotation does not repeat before all seven arenas");visited[stage]=true;BattleTest::nextRound(b);}
   for(bool shown:visited)check(shown,"automatic rotation visits every arena");
   bool rejected=false;try{Battle invalid(41,StageCount);}catch(const std::runtime_error&){rejected=true;}check(rejected,"stage constructor rejects out-of-range indices");
+ }
+ // Shuffled bags cover every arena, avoid adjacent repeats even at bag edges,
+ // and remain reproducible independently of combat random-number consumption.
+ {std::array<bool,StageCount> starts{};bool nonSequential=false;
+  for(unsigned seed=0;seed<64;++seed){Battle a(seed),b(seed);int previous=-1;
+   starts[a.state().stage]=true;
+   for(int bag=0;bag<12;++bag){std::array<bool,StageCount> seen{};
+    for(int round=0;round<StageCount;++round){int stage=a.state().stage;
+     check(stage>=0&&stage<StageCount,"shuffled stage is in range");
+     check(!seen[stage],"each shuffled bag visits all seven stages exactly once");seen[stage]=true;
+     check(stage!=previous,"stage never immediately repeats, including across bags");
+     check(stage==b.state().stage,"same seed reproduces the complete shuffled order");
+     if(previous>=0&&stage!=(previous+1)%StageCount)nonSequential=true;
+     previous=stage;BattleTest::nextRound(a);BattleTest::nextRound(b);
+    }
+   }
+  }
+  for(bool shown:starts)check(shown,"all stages are reachable as the random opener");
+  check(nonSequential,"automatic rotation is shuffled rather than sequential");
+ }
+ for(int stage=0;stage<StageCount;++stage){
+  Battle fixed(41,stage),preferred(41,-1,4,stage);std::array<bool,StageCount> seen{};
+  check(preferred.state().stage==stage,"launch choice becomes the first shuffled stage");
+  for(int round=0;round<StageCount;++round){
+   check(fixed.state().stage==stage,"explicit stage stays fixed across matches");
+   check(!seen[preferred.state().stage],"chosen opener still leaves a complete unique bag");
+   seen[preferred.state().stage]=true;BattleTest::nextRound(fixed);BattleTest::nextRound(preferred);
+  }
+ }
+ {Battle rewind(41,-1,4,3),fresh(41,-1,4,3);rewind.seek(220);rewind.seek(8);fresh.seek(8);
+  check(rewind.state().stage==3&&rewind.state().stage==fresh.state().stage,"rewinding preserves the launch stage");
+  check(rewind.counters.hits==fresh.counters.hits&&rewind.counters.rounds==fresh.counters.rounds,"rewinding replays the same seeded simulation");
+ }
+ // A real state file models successive process launches without using the
+ // actual user's history. Even identical seeds must not repeat the opener.
+ {std::string pattern=(std::filesystem::temp_directory_path()/"prism-brawl-startup-XXXXXX").string();
+  char* directory=mkdtemp(pattern.data());check(directory!=nullptr,"create isolated startup-state fixture");
+  struct Cleanup {std::filesystem::path path;~Cleanup(){std::error_code ec;std::filesystem::remove_all(path,ec);}} cleanup{directory};
+  auto file=cleanup.path/"state/prism-brawl/last-starting-stage";
+  int previous=-1;
+  for(int launch=0;launch<100;++launch){int chosen=chooseStartupStage(41,file);
+   check(chosen>=0&&chosen<StageCount&&chosen!=previous,"successive launches never repeat their starting stage");
+   std::ifstream input(file);std::string recorded;std::getline(input,recorded);
+   check(recorded==Stages[chosen].key,"chosen opener persists by stable stage key");previous=chosen;
+  }
+  for(int stage=0;stage<StageCount;++stage){
+   {std::ofstream output(file);output<<Stages[stage].key<<'\n';}
+   check(chooseStartupStage(41,file)!=stage,"every previous stage is excluded on the next launch");
+  }
+  {std::ofstream output(file);output<<"retired-or-corrupt-stage\n";}
+  int repaired=chooseStartupStage(41,file);check(repaired>=0&&repaired<StageCount,"invalid history recovers to a valid arena");
+  int fallback=chooseStartupStage(41,file/"unwritable-parent");
+  check(fallback>=0&&fallback<StageCount,"unavailable state storage does not block the saver");
  }
  {Frame frame;initialize(frame);
   for(int stage=0;stage<StageCount;++stage)for(double time:{0.,11.7,79.2}){

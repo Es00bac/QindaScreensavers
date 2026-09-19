@@ -1,4 +1,4 @@
-# Prism Brawl 1.2.0 — seven arenas
+# Prism Brawl — seven arenas
 
 The stage update adds four environments and rebuilds the original three. It
 ships with the full-body animation update described in [ANIMATION.md](ANIMATION.md).
@@ -39,8 +39,16 @@ and mineral ribbons move continuously. Lighting, sky, platform undersides and
 surface materials vary by arena. Wet metal and ice use stylized procedural
 highlights and streaks; there is no real-time planar reflection pass.
 
-`--stage auto` rotates through all seven arenas once before repeating, with the
-existing fade between rounds. `--list-stages` lists keys without opening a window.
+Since 1.2.1, `--stage auto` shuffles all seven arenas, showing each once before
+reshuffling, with the existing fade between rounds. The first stage of a new
+shuffle cannot match the previous round. Normal unseeded launches remember
+their starting arena and exclude it from the next launch's random choice.
+History is a single stage key in
+`${XDG_STATE_HOME:-$HOME/.local/state}/prism-brawl/last-starting-stage`.
+If that location cannot be written, startup falls back to random selection.
+`--seed N` bypasses history for deterministic replays; `--stage NAME` stays
+fixed. Offline tools and showcases leave launch history untouched.
+`--list-stages` lists keys without opening a window.
 
 ```sh
 prism-brawl --windowed --stage compile
@@ -52,6 +60,7 @@ prism-brawl --windowed --stage aurora --reduced-motion --mute
 
 * `include/battle.hpp`: the single stage registry.
 * `src/battle.cpp`: platform layouts, moving-platform physics and rotation.
+* `src/startup_stage.cpp`: remembered startup choice and exclusion across launches.
 * `src/stages.cpp`: environment geometry and stage palettes.
 * `src/meshes.cpp`, `include/scene.hpp`: terrain, foliage, mineral folds and crystals.
 * `shaders/sky.frag`, `shaders/mesh.frag`: skies, materials and lighting.
@@ -62,7 +71,7 @@ materials; animation, environment backgrounds and shader effects remain in sourc
 The optional `tools/render_stages_preview.py` captures all seven scenes and a
 21-second, 60 fps arena film using the real renderer.
 
-## Validation
+## Arena release validation (1.2.0)
 
 The release and AddressSanitizer/UndefinedBehaviorSanitizer builds pass all
 13 CTest checks. The unit suite checks 1,939,779 assertions, including unique
@@ -84,3 +93,18 @@ lifecycle code is unchanged by the arena update.
 
 Logs and individual frames: `validation/stages/`. The initial release's broader
 historical checks are retained in [TESTING.md](TESTING.md).
+
+## Startup and shuffle validation (1.2.1)
+
+All 13 release and AddressSanitizer/UndefinedBehaviorSanitizer CTest checks pass.
+The unit suite now checks 1,958,312 assertions, including 64 seeds across twelve
+complete shuffled bags each, nonrepeating bag boundaries, fixed-stage overrides,
+reproducible seeds and rewinding, and persistent launch history with repeated
+seeds, invalid records and unavailable storage.
+
+Thirty separate native launches with isolated state storage encountered all
+seven starting arenas with no adjacent repeat. Two explicitly seeded launches
+matched exactly; fixed stages, showcases, captures, listing and headless checks
+left history untouched. The 96-case stress sweep again completed 48 simulated
+hours and 20,736,000 ticks without invariant failures. Logs are retained in
+`validation/startup/`.

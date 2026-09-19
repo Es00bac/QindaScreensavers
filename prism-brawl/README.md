@@ -1,5 +1,18 @@
 # Prism Brawl
 
+## 1.2.1 · Randomized screensaver stages
+
+Every normal automatic launch starts on a randomly chosen arena different from
+the previous launch's starting arena. Matches then use shuffled groups of all
+seven stages, with no immediate repeats even when a new group begins.
+
+The saver remembers one stage key in
+`${XDG_STATE_HOME:-$HOME/.local/state}/prism-brawl/last-starting-stage`.
+`--seed N` keeps reproducible playback and bypasses that history;
+`--stage NAME` pins an arena. Captures, exports, showcases, benchmarks and
+headless checks do not change the remembered stage. If state storage is
+unavailable, startup still works with a random arena.
+
 ## 1.2.0 · Seven wallpaper-inspired arenas
 
 Four new environments join three rebuilt arenas, taking their colors, scenery
@@ -12,7 +25,7 @@ Azure Fold has broad animated blue mineral ribbons and porcelain decks.
 Prism Terminal now has a dimensional orbital gate and an obsidian eclipse sky.
 Reactor Garden grows layered foliage around its moving platforms. Afterglow
 Rooftop adds a deeper neon skyline, rain, passing traffic and rooftop machinery.
-All seven rotate automatically between matches.
+All seven shuffle automatically between matches.
 
 [Arena gallery](previews/Prism_Brawl_Stages.png) ·
 [Arena film](previews/Prism_Brawl_Stages.mp4) ·
@@ -126,7 +139,7 @@ An optional dynamically linked Linux x86-64 test executable is included in
 ./build/prism-brawl --reduced-motion --camera fixed
 ```
 
-`--stage auto` is the default and advances the arena after each match. Other
+`--stage auto` is the default and shuffles the arenas after each match. Other
 choices are `prism`, `garden`, `rooftop`, `bliss`, `compile`, `aurora` and `azure`.
 `--camera auto` follows the active
 field smoothly; `fixed` keeps a wider stationary composition; `close` moves in.

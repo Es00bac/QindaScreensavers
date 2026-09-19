@@ -66,7 +66,8 @@ struct BattleState {
 };
 struct Counters {std::uint64_t ticks=0,hits=0,blocks=0,kos=0,jumps=0,recoveries=0,specials=0,grabs=0,rounds=0,pickups=0,taunts=0,tumbles=0,hardLandings=0,reactions=0;};
 class Battle {
- BattleState current_,previous_;Random rng_;std::uint64_t seed_;int stageChoice_,count_;
+ BattleState current_,previous_;Random rng_,stageRng_;std::uint64_t seed_;int stageChoice_,count_,firstStage_;
+ std::array<int,StageCount> stageOrder_{};
  double accumulator_=0;float nextPickup_=10;std::uint64_t soundSerial_=0;
  void cue(saver::Cue,int slot);void special(int slot);
  void reset(unsigned round,double globalTime);
@@ -77,7 +78,7 @@ class Battle {
  friend struct BattleTest;
 public:
  Counters counters;
- explicit Battle(std::uint64_t seed=41,int stage=-1,int count=4);
+ explicit Battle(std::uint64_t seed=41,int stage=-1,int count=4,int firstStage=-1);
  void advance(double seconds);void seek(double time);
  BattleState sample()const;
  const BattleState& state()const{return current_;}

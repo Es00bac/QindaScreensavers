@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "renderer.hpp"
 #include "battle.hpp"
+#include "startup_stage.hpp"
 #include "sdl_abi.hpp"
 #include "qt_display.hpp"
 #include "sfx.hpp"
@@ -25,7 +26,7 @@ struct View {
  SDL_Window* window=nullptr;SDL_GLContext context=nullptr;std::unique_ptr<Renderer> renderer;
  ~View(){if(context&&window)SDL_GL_MakeCurrent(window,context);renderer.reset();if(context)SDL_GL_DeleteContext(context);if(window)SDL_DestroyWindow(window);}
 };
-void help(){std::cout<<R"HELP(PRISM BRAWL / NEON KNOCKOUT 1.2.0
+void help(){std::cout<<R"HELP(PRISM BRAWL / NEON KNOCKOUT 1.2.1
 A C++20 autonomous 3D platform-fighting screensaver for QindaQt.
 
   --windowed              Preview window (default)
@@ -39,7 +40,7 @@ A C++20 autonomous 3D platform-fighting screensaver for QindaQt.
   --stage NAME            auto, prism, garden, rooftop, bliss, compile, aurora, azure
   --list-stages           List the seven arenas and their command-line names
   --fighters N            2, 4 (default), or 8 simultaneous fighters
-  --seed N                Unsigned integer seed for reproducible matches
+  --seed N                Reproducible matches; bypass remembered startup stage
   --camera NAME           auto (default), fixed, close
   --showcase N            Inspect an isolated fighter, ID 0..7
   --animation-demo        Cycle moves, taunts, launches and landings in showcase
@@ -63,6 +64,8 @@ A C++20 autonomous 3D platform-fighting screensaver for QindaQt.
   --help
 
 0 CyberPengu / 1 Ducké / 2 Vix / 3 Cache / 4 Mochi / 5 Hex / 6 Patches / 7 Axi
+Automatic stages shuffle all seven arenas without consecutive repeats.
+Normal launches remember the last starting stage and choose a different one.
 Escape exits. Fullscreen dismisses on input after a one-second launch grace.
 The existing desktop owns idle activation, secure locking and display power.
 No game controls, network or telemetry. Not a secure session locker.
@@ -119,7 +122,10 @@ int main(int argc,char** argv){
   if(!haveSeed)seed=std::random_device{}();
   if((frames>0)!=(!raw.empty()))throw std::runtime_error("Use --frames and --raw together");
   if(!exportDir.empty()){exportModels(exportDir,seed,stage<0?0:stage);std::cout<<"Models exported to "<<exportDir<<'\n';return 0;}
-  Battle battle(seed,stage,count);
+  bool rememberStart=!haveSeed&&stage<0&&!listScreens&&!options.gallery&&
+                     logSeconds<0&&snapshot.empty()&&frames==0&&benchmark==0;
+  int firstStage=rememberStart?chooseStartupStage(seed,startupStageFile()):-1;
+  Battle battle(seed,stage,count,firstStage);
   if(logSeconds>=0){
    battle.advance(logSeconds);const auto& c=battle.counters;
    std::cout<<"{\"seed\":"<<seed<<",\"seconds\":"<<logSeconds<<",\"fighters\":"<<count<<",\"ticks\":"<<c.ticks<<",\"hits\":"<<c.hits<<",\"blocks\":"<<c.blocks<<",\"knockouts\":"<<c.kos<<",\"jumps\":"<<c.jumps<<",\"recoveries\":"<<c.recoveries<<",\"specials\":"<<c.specials<<",\"grabs\":"<<c.grabs<<",\"rounds\":"<<c.rounds<<",\"pickups\":"<<c.pickups<<",\"taunts\":"<<c.taunts<<",\"tumbles\":"<<c.tumbles<<",\"hard_landings\":"<<c.hardLandings<<",\"reactions\":"<<c.reactions<<"}\n";return 0;

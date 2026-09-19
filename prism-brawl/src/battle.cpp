@@ -50,14 +50,30 @@ std::array<Platform,4> platforms(int stage,double time){
  return {{{0,0,11.8f,3.7f,true},{-5.7f,3.5f,2.7f,1.6f,false},{5.7f,3.5f,2.7f,1.6f,false},{0,6.9f,2.5f,1.7f,false}}};
 }
 const char* stageName(int id){return Stages.at(id).name;}
-Battle::Battle(std::uint64_t seed,int stage,int count):rng_(seed),seed_(seed),stageChoice_(stage),count_(count){
+Battle::Battle(std::uint64_t seed,int stage,int count,int firstStage):rng_(seed),stageRng_(seed^0xb47a11e5ULL),seed_(seed),stageChoice_(stage),count_(count),firstStage_(firstStage){
  if(count!=2&&count!=4&&count!=8)throw std::runtime_error("Fighter count must be 2, 4 or 8");
  if(stage< -1||stage>=StageCount)throw std::runtime_error("Stage out of range");
+ if(firstStage< -1||firstStage>=StageCount)throw std::runtime_error("Starting stage out of range");
  reset(0,0);previous_=current_;
 }
 void Battle::reset(unsigned round,double globalTime){
+ int nextStage=stageChoice_;
+ if(stageChoice_<0){
+  if(round%StageCount==0){
+   std::iota(stageOrder_.begin(),stageOrder_.end(),0);
+   for(int i=StageCount-1;i>0;--i)std::swap(stageOrder_[i],stageOrder_[stageRng_.next()%(i+1)]);
+   if(round==0&&firstStage_>=0){
+    auto first=std::find(stageOrder_.begin(),stageOrder_.end(),firstStage_);
+    std::iter_swap(stageOrder_.begin(),first);
+   }else if(round>0&&stageOrder_[0]==current_.stage){
+    // A new shuffled bag must not immediately repeat the previous arena.
+    std::swap(stageOrder_[0],stageOrder_[1+stageRng_.next()%(StageCount-1)]);
+   }
+  }
+  nextStage=stageOrder_[round%StageCount];
+ }
  current_=BattleState{};current_.round=round;current_.time=globalTime;current_.active=count_;
- current_.stage=stageChoice_<0?int((round+seed_%StageCount)%StageCount):stageChoice_;rng_=Random(seed_+round*191099);
+ current_.stage=nextStage;rng_=Random(seed_+round*191099);
  std::array<int,8> order{0,1,2,3,4,5,6,7};
  // The first two rounds show the entire familiar cast; subsequent pairs shuffle it.
  if(round>=2){Random r(seed_+(round/2)*17171);for(int i=7;i>0;--i)std::swap(order[i],order[r.next()%(i+1)]);}
@@ -288,7 +304,7 @@ void Battle::advance(double seconds){
  accumulator_-=steps*FixedStep;if(accumulator_<0)accumulator_=0;
  for(std::uint64_t i=0;i<steps;i++)step();
 }
-void Battle::seek(double time){if(!std::isfinite(time)||time<0||time>86400)throw std::runtime_error("Invalid simulation time");double total=current_.time+accumulator_;if(time+1e-9<total){*this=Battle(seed_,stageChoice_,count_);total=0;}advance(std::max(0.,time-total));}
+void Battle::seek(double time){if(!std::isfinite(time)||time<0||time>86400)throw std::runtime_error("Invalid simulation time");double total=current_.time+accumulator_;if(time+1e-9<total){*this=Battle(seed_,stageChoice_,count_,firstStage_);total=0;}advance(std::max(0.,time-total));}
 BattleState Battle::sample()const{
  auto s=current_;float a=clamp(float(accumulator_/FixedStep));if(s.round!=previous_.round)return s;
  auto lerp=[a](float x,float y){return x+(y-x)*a;};

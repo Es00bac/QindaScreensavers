@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 cmake_minimum_required(VERSION 3.20)
-project(PrismBrawl VERSION 1.2.0 LANGUAGES CXX)
+project(PrismBrawl VERSION 1.2.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -32,7 +32,7 @@ foreach(SHADER mesh.vert mesh.frag full.vert shadow.frag sky.frag blur.frag post
  set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/shaders/${SHADER}")
 endforeach()
 configure_file(shaders/shader_strings.hpp.in generated/shader_strings.hpp @ONLY)
-add_library(brawl-scene src/meshes.cpp src/models.cpp src/animation.cpp src/battle.cpp src/stages.cpp src/director.cpp src/export.cpp)
+add_library(brawl-scene src/meshes.cpp src/models.cpp src/animation.cpp src/battle.cpp src/stages.cpp src/startup_stage.cpp src/director.cpp src/export.cpp)
 target_include_directories(brawl-scene PUBLIC include)
 target_link_libraries(brawl-scene PUBLIC Threads::Threads)
 add_executable(prism-brawl src/main.cpp src/renderer.cpp)

@@ -1,5 +1,8 @@
 # Validation report
 
+The current stage and startup-selection checks are recorded in
+[STAGES.md](STAGES.md#startup-and-shuffle-validation-121).
+
 The newer full-body animation pass has its own [validation record](ANIMATION.md#validation--2026-09-19),
 including release/sanitizer tests, 24 simulated hours, and AMD hardware renderer
 captures. The original package validation below is retained as historical evidence.
