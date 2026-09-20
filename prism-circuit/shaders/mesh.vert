@@ -8,6 +8,7 @@ layout(location=8) in vec4 surface;
 uniform mat4 vp,lightVP;
 uniform float time;
 out vec3 world,normal,local;
+out vec3 dimensions,localNormal;
 out vec2 uv;
 out vec4 color,mat,shadowCoord;
 void main(){
@@ -18,6 +19,7 @@ void main(){
  }
  if(surface.z>10.5&&surface.z<11.5){p.y+=sin(time*1.65+p.x*2.4)*abs(p.x)*.09;p.z+=sin(time*1.30+p.x*1.8)*abs(p.x)*.05;}
  vec4 w=model*vec4(p,1);world=w.xyz;local=p;
+ dimensions=vec3(length(model[0].xyz),length(model[1].xyz),length(model[2].xyz));localNormal=n;
  normal=normalize(transpose(inverse(mat3(model)))*n);uv=aUV;color=albedo;mat=surface;
  shadowCoord=lightVP*w;gl_Position=vp*w;
 }

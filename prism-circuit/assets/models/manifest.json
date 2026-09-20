@@ -1,0 +1,22 @@
+{
+  "version": "1.2.0",
+  "seed": 41,
+  "static_exports_only": true,
+  "models": [
+    {"name":"cyberpengu-kart","obj":"cyberpengu-kart.obj","mtl":"cyberpengu-kart.mtl","vertices":113364,"triangles":197616,"parts":203,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.4445,1.85142]},
+    {"name":"ducke-kart","obj":"ducke-kart.obj","mtl":"ducke-kart.mtl","vertices":104651,"triangles":181360,"parts":194,"bounds_min":[-1.45388,0.01,-1.95],"bounds_max":[1.44685,2.16722,1.85142]},
+    {"name":"vix-fox-kart","obj":"vix-fox-kart.obj","mtl":"vix-fox-kart.mtl","vertices":117938,"triangles":206192,"parts":209,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.87177,1.85142]},
+    {"name":"cache-raccoon-kart","obj":"cache-raccoon-kart.obj","mtl":"cache-raccoon-kart.mtl","vertices":123901,"triangles":217200,"parts":212,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.37289,1.85142]},
+    {"name":"mochi-rabbit-kart","obj":"mochi-rabbit-kart.obj","mtl":"mochi-rabbit-kart.mtl","vertices":116482,"triangles":203856,"parts":203,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,3.07577,1.85142]},
+    {"name":"hex-cat-kart","obj":"hex-cat-kart.obj","mtl":"hex-cat-kart.mtl","vertices":119105,"triangles":208400,"parts":210,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.72129,1.85142]},
+    {"name":"patches-red-panda-kart","obj":"patches-red-panda-kart.obj","mtl":"patches-red-panda-kart.mtl","vertices":123626,"triangles":217136,"parts":209,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.54574,1.874]},
+    {"name":"axi-axolotl-kart","obj":"axi-axolotl-kart.obj","mtl":"axi-axolotl-kart.mtl","vertices":123828,"triangles":216832,"parts":216,"bounds_min":[-1.44685,0.01,-1.95],"bounds_max":[1.44685,2.22966,1.85142]},
+    {"name":"prism-start-arch","obj":"prism-start-arch.obj","mtl":"prism-start-arch.mtl","vertices":9416,"triangles":15024,"parts":25,"bounds_min":[-8.027,-0.25,-0.553],"bounds_max":[8.027,6.82925,0.5485]},
+    {"name":"prismatic-track","obj":"prismatic-track.obj","mtl":"prismatic-track.mtl","vertices":22117,"triangles":39000,"parts":2,"bounds_min":[-116.594,-32.0166,-136.305],"bounds_max":[143.604,31.2789,136.305]},
+    {"name":"chromatic-eight-track","obj":"chromatic-eight-track.obj","mtl":"chromatic-eight-track.mtl","vertices":22117,"triangles":39000,"parts":2,"bounds_min":[-158.135,-30.8247,-98.695],"bounds_max":[158.135,30.0758,98.7015]},
+    {"name":"aurora-loop-track","obj":"aurora-loop-track.obj","mtl":"aurora-loop-track.mtl","vertices":22117,"triangles":39000,"parts":2,"bounds_min":[-160.098,-22.5916,-109.117],"bounds_max":[160.11,21.8459,109.118]},
+    {"name":"qinda-bliss-track","obj":"qinda-bliss-track.obj","mtl":"qinda-bliss-track.mtl","vertices":22117,"triangles":39000,"parts":2,"bounds_min":[-201.723,-14.9946,-145.996],"bounds_max":[202.102,38.0408,145.966]},
+    {"name":"neon-undercity-track","obj":"neon-undercity-track.obj","mtl":"neon-undercity-track.mtl","vertices":22117,"triangles":38400,"parts":2,"bounds_min":[-168.313,-26.6209,-165.284],"bounds_max":[160.056,62.242,152.793]},
+    {"name":"tow-bot","obj":"tow-bot.obj","mtl":"tow-bot.mtl","vertices":17685,"triangles":30784,"parts":33,"bounds_min":[-1.5775,1.30395,-0.83],"bounds_max":[1.5775,5.21,0.535]}
+  ]
+}

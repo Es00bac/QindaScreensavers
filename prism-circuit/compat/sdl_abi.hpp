@@ -16,7 +16,8 @@ struct SDL_Keysym {Sint32 scancode,sym; Uint16 mod; Uint32 unused;};
 struct SDL_KeyboardEvent {Uint32 type,timestamp,windowID; Uint8 state,repeat,padding2,padding3; SDL_Keysym keysym;};
 struct SDL_WindowEvent {Uint32 type,timestamp,windowID; Uint8 event,padding1,padding2,padding3; Sint32 data1,data2;};
 struct SDL_MouseMotionEvent {Uint32 type,timestamp,windowID,which,state; Sint32 x,y,xrel,yrel;};
-union SDL_Event {Uint32 type; SDL_KeyboardEvent key; SDL_WindowEvent window; SDL_MouseMotionEvent motion; Uint8 padding[56]; std::uint64_t align;};
+struct SDL_MouseWheelEvent {Uint32 type,timestamp,windowID,which;Sint32 x,y;Uint32 direction;float preciseX,preciseY;Sint32 mouseX,mouseY;};
+union SDL_Event {Uint32 type; SDL_KeyboardEvent key; SDL_WindowEvent window; SDL_MouseMotionEvent motion; SDL_MouseWheelEvent wheel; Uint8 padding[56]; std::uint64_t align;};
 static_assert(sizeof(SDL_Event)==56);
 extern "C" {
 int SDL_Init(Uint32); void SDL_Quit(); const char* SDL_GetError(); int SDL_SetHint(const char*,const char*);

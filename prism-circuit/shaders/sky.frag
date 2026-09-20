@@ -10,6 +10,25 @@ void main(){
  vec3 F=normalize(target-eye),R=normalize(cross(F,up)),U=cross(R,F);
  vec3 ray=normalize(F+R*q.x*tan(fov*.5)+U*q.y*tan(fov*.5));
  vec2 sp=vec2(atan(ray.z,ray.x)/6.28318,asin(ray.y)/3.14159);
+ if(chapter==3){
+  float height=clamp(ray.y*.85+.14,0,1);
+  vec3 daylight=mix(vec3(.34,.52,.46),vec3(.035,.19,.40),sqrt(height));
+  float cloud=fbm(ray*5.4+vec3(time*.002,0,0));
+  float cumulus=smoothstep(.49,.69,cloud)*smoothstep(-.06,.26,ray.y);
+  daylight=mix(daylight,vec3(.80,.86,.78),cumulus*.86);
+  vec3 sun=normalize(vec3(-.65,.44,.35));float glow=pow(max(0,dot(ray,sun)),64);
+  daylight+=vec3(.53,.39,.12)*glow;
+  float moon=dot(ray,normalize(vec3(.22,.40,-.90)));
+  daylight=mix(daylight,vec3(.53,.69,.69),smoothstep(.974,.976,moon)*.3);
+  frag=vec4(daylight,1);return;
+ }
+ if(chapter==4){
+  float haze=pow(1-clamp(abs(ray.y),0,1),3);
+  vec3 night=vec3(.006,.012,.032)+haze*vec3(.025,.033,.044);
+  night+=vec3(.009,.020,.029)*fbm(ray*4+vec3(time*.002,0,0));
+  night+=stars(sp,140.)*.12*smoothstep(.18,.7,ray.y);
+  frag=vec4(night,1);return;
+ }
  float cloud=fbm(ray*3.6+vec3(seed*.009,0,0)),veins=fbm(ray*9.8+cloud*2.5);
  float ribbon=exp(-pow((ray.y+.23+sin(atan(ray.z,ray.x)*2.)*.11)*4.1,2.));
  vec3 gas=mix(vec3(.025,.055,.15),vec3(.12,.018,.15),smoothstep(.40,.63,veins));
@@ -17,7 +36,7 @@ void main(){
  col+=vec3(.012,.11,.10)*pow(veins,4.)*.5;
  col+=stars(sp,140.)+stars(sp+2.,260.)*.65;
  // A slowly striated gas giant and ring system, fixed in world space.
- vec3 center=vec3(-45,-154,-430);float radius=128.;vec3 oc=eye-center;
+ vec3 center=vec3(-45,190,-640);float radius=128.;vec3 oc=eye-center;
  float b=dot(oc,ray),c=dot(oc,oc)-radius*radius,disc=b*b-c;
  float planetT=1e20;
  if(disc>0&&b<0){

@@ -1,0 +1,12 @@
+{
+  "project": "prism-brawl",
+  "version": "1.2.1",
+  "repository": "/home/cabewse/git/screensaver-suite.git",
+  "commit": "0d5b59c4d7230e1eebce358431d405684a7c75e4",
+  "branch": "prism-brawl-1.2.1",
+  "local_release_workdir": "/tmp/prism-brawl-release-5t4dr_pr",
+  "base_commit": "0ced5ea7f5f4b85db60358f829c6c4d7dcc9293e",
+  "overlay_repository": "ssh://desktop/home/cabewse/git/QindaGentoo.git",
+  "package": "=x11-misc/prism-brawl-1.2.1::qindaqt",
+  "overlay_commit": "527f80edd228f025df91e26b72500485dc77b4bc"
+}

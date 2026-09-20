@@ -1,0 +1,2466 @@
+newmtl part_0
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_1
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_2
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_3
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_4
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_5
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_6
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_7
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_8
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_9
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_10
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_11
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_12
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_13
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_14
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_15
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_16
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_17
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_18
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_19
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_20
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_21
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_22
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_23
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_24
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_25
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_26
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_27
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_28
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_29
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_30
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_31
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_32
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_33
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_34
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_35
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_36
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_37
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_38
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_39
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_40
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_41
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_42
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_43
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_44
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_45
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_46
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_47
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_48
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_49
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_50
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_51
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_52
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_53
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_54
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_55
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_56
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_57
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_58
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_59
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_60
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_61
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_62
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_63
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_64
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_65
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_66
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_67
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_68
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_69
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_70
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_71
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_72
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_73
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_74
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_75
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_76
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_77
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_78
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_79
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_80
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_81
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_82
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_83
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_84
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_85
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_86
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_87
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_88
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_89
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_90
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_91
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_92
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_93
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_94
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_95
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_96
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_97
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_98
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_99
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_100
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_101
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_102
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_103
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_104
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_105
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_106
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_107
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_108
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_109
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_110
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_111
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_112
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_113
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_114
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_115
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_116
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_117
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_118
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_119
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_120
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_121
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_122
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_123
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_124
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_125
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_126
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_127
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_128
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_129
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_130
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_131
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_132
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_133
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_134
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_135
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_136
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_137
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_138
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_139
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_140
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_141
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_142
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_143
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_144
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_145
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_146
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_147
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_148
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_149
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_150
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_151
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_152
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_153
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_154
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_155
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_156
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_157
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_158
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_159
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_160
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_161
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_162
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_163
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_164
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_165
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_166
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_167
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_168
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_169
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_170
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_171
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_172
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_173
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_174
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_175
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_176
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_177
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_178
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_179
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_180
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_181
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_182
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_183
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_184
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_185
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_186
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_187
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_188
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_189
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_190
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_191
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_192
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_193
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_194
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_195
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_196
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_197
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_198
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_199
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_200
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_201
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_202
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_203
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_204
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_205
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_206
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_207
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_208
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_209
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_210
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_211
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_212
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_213
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_214
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_215
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_216
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_217
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_218
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_219
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_220
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_221
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_222
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_223
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_224
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_225
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_226
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_227
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_228
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_229
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_230
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_231
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_232
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_233
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_234
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_235
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_236
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_237
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_238
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_239
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_240
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_241
+Kd 0.37 0.68 0.8
+Ke 0.296 0.544 0.64
+Ks 0.3 0.3 0.3
+Ns 160
+
+newmtl part_242
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_243
+Kd 0.75 0.45 0.13
+Ke 1.05 0.63 0.182
+Ks 0 0 0
+Ns 120
+
+newmtl part_244
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_245
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_246
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_247
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_248
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_249
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_250
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_251
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_252
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_253
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_254
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_255
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_256
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_257
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_258
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_259
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_260
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_261
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_262
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_263
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_264
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_265
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_266
+Kd 0.68 0.76 0.73
+Ke 0 0 0
+Ks 0.36 0.36 0.36
+Ns 148
+
+newmtl part_267
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_268
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_269
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_270
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_271
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_272
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_273
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_274
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_275
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_276
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_277
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_278
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_279
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_280
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_281
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_282
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_283
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_284
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_285
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_286
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_287
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_288
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_289
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_290
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_291
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_292
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_293
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_294
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_295
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_296
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_297
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_298
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_299
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_300
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_301
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_302
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_303
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_304
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_305
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_306
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_307
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_308
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_309
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_310
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_311
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_312
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_313
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_314
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_315
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_316
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_317
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_318
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_319
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_320
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_321
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_322
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_323
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_324
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_325
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_326
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_327
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_328
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_329
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_330
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_331
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_332
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_333
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_334
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_335
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_336
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_337
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_338
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_339
+Kd 0.025 0.085 0.18
+Ke 0 0 0
+Ks 0.6 0.6 0.6
+Ns 164
+
+newmtl part_340
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_341
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_342
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_343
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_344
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_345
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_346
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_347
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_348
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_349
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_350
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_351
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_352
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_353
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_354
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_355
+Kd 0.06 0.92 0.7
+Ke 0.21 3.22 2.45
+Ks 0.25 0.25 0.25
+Ns 154
+
+newmtl part_356
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_357
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_358
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_359
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_360
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_361
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_362
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_363
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_364
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_365
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_366
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_367
+Kd 1 0.37 0.06
+Ke 3 1.11 0.18
+Ks 0.1 0.1 0.1
+Ns 140
+
+newmtl part_368
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_369
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_370
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_371
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_372
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_373
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_374
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_375
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_376
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_377
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_378
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_379
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_380
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_381
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_382
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_383
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_384
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_385
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_386
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_387
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_388
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_389
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_390
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_391
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_392
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_393
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_394
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_395
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_396
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_397
+Kd 0.72 0.29 0.09
+Ke 0 0 0
+Ks 0.75 0.75 0.75
+Ns 148
+
+newmtl part_398
+Kd 0.027 0.046 0.066
+Ke 0 0 0
+Ks 0.68 0.68 0.68
+Ns 148
+
+newmtl part_399
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_400
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_401
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_402
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_403
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_404
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_405
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_406
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_407
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_408
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_409
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_410
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+

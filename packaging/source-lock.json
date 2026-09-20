@@ -1,0 +1,11 @@
+{
+  "repository": "/home/cabewse/git/screensaver-suite.git",
+  "commit": "9076c73a76ddf1689cd1c613e8a7aac57b846a2b",
+  "versions": {
+    "qinda-patrol": "0.2.0",
+    "circuit-reef": "1.1.0",
+    "prism-circuit": "1.1.0",
+    "prism-brawl": "1.1.0",
+    "starward-reimagined": "2.1.0"
+  }
+}

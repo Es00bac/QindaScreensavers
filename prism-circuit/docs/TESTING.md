@@ -1,133 +1,102 @@
-# Validation report
+# Validation — Prism Circuit 1.2
 
-Date: 2026-09-19. Source version: Prism Circuit 1.0.0.
+Date: 2026-09-19. These results describe the updated local workspace, not the
+older published 1.0/1.1 package. Historical logs elsewhere in `validation/`
+are retained and should not be confused with this run.
 
-## Environment and scope
+## Environment
 
-Linux x86-64, GNU C++ 14.2, CMake, SDL2/Cairo runtime-library ABI declarations,
-Xvfb virtual X11 display, Mesa 25.0.7 llvmpipe (LLVM 19.1.7, 256-bit).
-The driver exposes an OpenGL 4.5 core context; the application requests 3.3 core.
-Normal distro development headers were not installed in this creation environment.
+Linux x86-64, GCC 15.3, Qt 6.11.1, SDL2 2.32.8, Cairo 1.18.4 and Mesa 26.1.8.
+Native captures used an AMD Radeon integrated Renoir GPU, OpenGL 4.6 core and
+SDL's X11 backend. CMake/Ninja produced the build and test binaries.
 
-The native app genuinely created windows, compiled its GLSL shaders, rendered
-its models and responded to events. This was **software rendering**, not a test
-of a physical graphics card, native Wayland, or physical multi-monitor operation.
-Those deployment paths remain unverified. No user desktop input was injected;
-native event tests used only the dedicated virtual X11 display and PID-matched
-application windows.
+## Automated checks
 
-## Unit and regression tests
+The five CTest checks pass: race/motion/mesh; combat/recovery/cameras;
+level grounding and clearance; help; and invalid-option rejection.
 
-The latest release run passed **454,797 assertions**. Coverage includes track
-closure, negative-distance wrapping, track frame orthogonality, bounded banking,
-fixed-step determinism under different presentation increments, finite state,
-road bounds, approximate fender-box separation, boost-pad activation, overtakes,
-race completion/reset, triangle indices, instance transforms and safe camera range.
+The race/motion/mesh test reports **618,844 assertions**. The combat test
+simulates ten minutes per course, exercises all seven items, all eight camera
+subjects, spinouts, takedowns, rescues, jumping/landing, deterministic seeking,
+camera hold time, finite transforms, driver size differences and steering grips.
+The seed-41 run records 572 hits, 378 knockouts, 369 completed rescues,
+238 trap hits, 97 blocks, and 56 jumps with 56 landings.
 
-The standard CTest suite passed 3/3: race/motion/mesh tests, help output, and
-rejection of an invalid numeric option. Logs are in `validation/`.
+Scenery checks visit sixteen positions on each of five courses with three seeds.
+The latest run validates **84,163 reserved solids**, rejects deliberately
+intersecting placements, verifies facade parts remain inside their reserved
+silhouettes, and independently finds four city crossings. Minimum centerline
+vertical separation is **25.8127 m**. This is sampled regression coverage,
+not a proof over every seed, camera position or possible modification.
 
-A lane-convergence defect found during development could move a rear kart
-backward abruptly. The final resolver uses the smaller penetration axis:
-side-by-side contacts are resolved laterally; longitudinal corrections brake
-the following car. A motion-displacement regression check is included in the
-long simulation test. The failing development build is not the packaged build.
+The seeded stress test passes sixty course/seed combinations, ten minutes each:
+**10 simulated hours**, **4,320,000 fixed ticks**, **27,360,000 checks**.
+It records 17,432 overtakes, 13,721 boosts and 215 completed race resets.
+Maximum non-reset displacement at 60 Hz is 0.90987 m; maximum speed is
+37.72986 m/s. Tests check continuity, finite/bounded state and separation outside
+explicit spinout/airborne/rejoin states.
 
-## Six-hour seeded stress run
-
-The final build completed 36 course/seed combinations, each simulated for ten
-minutes: three courses times twelve seeds, **six simulation hours total**.
-The run processed 2,592,000 fixed ticks and 16,416,000 validation checks.
-
-Recorded results:
-
-| Measure | Result |
-|---|---:|
-| Pairwise race-order overtakes | 15,014 |
-| Boost-pad activations | 8,144 |
-| Completed race resets | 144 |
-| Small contact corrections | 1,077 |
-| Largest measured displacement at 60 Hz | 0.568908393 m |
-| Maximum absolute lateral lane position | 4.09998941 m |
-| Maximum speed observed | 34.1356125 m/s |
-
-This test checks finite and bounded state, travel continuity between non-reset
-samples, and approximate body separation. It is not a formal proof for every
-possible seed. Contact corrections are expected arcade collision responses,
-not missed-landing or off-track recoveries. Counters and checks are reproduced
-by `prism-stress`; exact results are in `validation/stress.json`.
+Development checks caught two genuine visual problems: unstable bank estimates
+and a discontinuity in nearest-road terrain grading. The bank now uses a wider,
+smoothed derivative stencil; the landscape blends nearby route samples
+continuously. Falling racers use that same terrain surface.
 
 ## Sanitizers
 
-AddressSanitizer and UndefinedBehaviorSanitizer passed the complete latest unit
-suite with leak detection enabled. A separate sanitized native window smoke test
-also exited successfully. Leak detection was disabled only for that GL/driver
-smoke test because driver-owned allocations are outside the application test's
-ownership boundary. See `asan-tests.log` and `asan-native.log`.
+AddressSanitizer and UndefinedBehaviorSanitizer builds passed the simulation,
+combat/camera and scenery tests with leak detection enabled. LeakSanitizer
+cannot inspect threads under this workspace sandbox's tracing restrictions,
+so those tests were run outside the sandbox after approval. No desktop input
+was injected. These are CPU tests, not a sanitizer guarantee for the GPU driver.
 
-## Native lifecycle and input tests
+## Actual renderer captures
 
-All passed, with exit code 0:
+The new files are in `previews/refinement-1.2/`:
 
-- Windowed launch, resize from 640x360 to 900x600, hide, resume, and Escape.
-- Hidden-window pause: 0.0 process CPU seconds over the measured two-second
-  hidden interval, after allowing the last submitted frame to finish.
-- Fullscreen launch and pointer-activity dismissal after the startup grace period.
-- SIGTERM shutdown of the native window.
+- `city-race.mp4`: 24 s, 720 frames, simulation time 12–36, automatic director.
+- `tow-bot-recovery.mp4`: 10 s, 300 frames, time 17–27, full takedown/recovery.
+- `bliss-race.mp4`: 12 s, 360 frames, time 12–24, Ducké chase view.
+- PNGs show the city pack, jump, cockpit, full layouts, Bliss terminal,
+  Tow-Bot and Patches's worn kart.
 
-The app uses an elapsed-time cap after a stall. On a slow renderer it can play
-more slowly than wall time rather than allowing unlimited simulation catch-up.
-This is documented behavior, not a native performance guarantee.
+All videos are 1280×720, 30 fps H.264 with no audio; FFprobe confirmed dimensions,
+durations and frame counts. Renderer/encoder processes exited successfully.
+Frames sampled through the action and camera changes were visually inspected.
+The videos are direct native rendering, not generated concept images or
+montages of stills. Only the material/facade bitmap atlases use image generation.
 
-## Visual and export checks
+Separate unpaced 120-frame benchmarks at 1280×720, seed 41, start time 16,
+default 4× MSAA measured **40.966 fps city** and **89.261 fps Bliss**.
+These short, view-dependent measurements apply only to this machine/run.
+Offline video export throughput is not a native frame-rate measurement.
+The 60 fps option is a cap, not a promise.
 
-All three course overview frames and eight character turntables were captured
-through the running OpenGL renderer and inspected. Full-HD and 3840x2160 race
-captures were also produced. No concept-image generator was used for the preview.
-
-The video is a continuous **24-second**, **1280x720**, **30 fps** H.264 export:
-720 frames from simulation time 12 through the next 24 seconds. Renderer and
-encoder both exited 0. This contains normal continuous racing and the automatic
-camera's first racer handoff, not a full race or three-course montage.
-
-Export took approximately 313 wall-clock seconds on the software renderer.
-Therefore its encoded frame rate is **not** evidence of 30 fps native performance.
-A separate 12-frame 1280x720 eco-mode llvmpipe benchmark reported 2.633 fps; do not
-extrapolate that software result into a promise about a physical GPU.
-
-Ten OBJ/MTL model sets passed finite-coordinate, triangle-index, UV/normal-index
-and material-reference checks. They contain 518,554 exported vertices and
-833,352 triangles in aggregate. Those totals are static exports, not a native
-per-frame triangle count. Instance culling/composition varies at runtime.
+Fifteen regenerated OBJ/MTL sets have finite coordinates and valid positive
+vertex/UV/normal triangle references. Their current counts and bounds are in
+`assets/models/manifest.json`; they are static models, not complete animated levels.
 
 ## Reproduce
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-ninja -C build $(portageq envvar MAKEOPTS)
+cmake --build build
 ctest --test-dir build --output-on-failure
 ./build/prism-stress
-./build/prism-circuit --race-log 600 --seed 41
-./build/prism-circuit --windowed --size 1280x720 --benchmark 120 --eco
+./build/prism-circuit --course city --seed 41 --race-log 600
+./build/prism-circuit --course city --seed 41 --start 16 --size 1280x720 --benchmark 120 --mute
+cmake -S . -B build/sanitizers -DCMAKE_BUILD_TYPE=Debug -DPRISM_SANITIZERS=ON
+cmake --build build/sanitizers
+ASAN_OPTIONS=detect_leaks=1 ./build/sanitizers/prism-tests
+ASAN_OPTIONS=detect_leaks=1 ./build/sanitizers/prism-combat-tests
+ASAN_OPTIONS=detect_leaks=1 ./build/sanitizers/prism-scenery-tests
 ```
 
-```sh
-cmake -S . -B build-asan -DCMAKE_BUILD_TYPE=Debug -DPRISM_SANITIZERS=ON
-ninja -C build-asan $(portageq envvar MAKEOPTS)
-ASAN_OPTIONS=detect_leaks=1 ./build-asan/prism-tests
-```
+## Not revalidated in this refinement
 
-## Package rebuild
+Physical multi-monitor hotplug, native Wayland presentation, desktop idle/DPMS
+integration, secure locking, resize/hide/input lifecycle automation, mixed-DPI
+hardware and audio-device behavior were not re-exercised for this update.
+Their existing suite implementation remains in place. There is no playable
+mode, general rigid-body solver, online service, telemetry or bundled idle daemon.
 
-The source archive is also extracted into a clean directory for a fresh build,
-CTest run, installation, and a screenshot made with the installed executable.
-The results of that check are recorded separately in
-`validation/package-verification.json` and `validation/package-verification.log`.
-
-## Explicitly unverified or out of scope
-
-Native Wayland; a physical GPU and its frame pacing; multiple physical displays;
-compositor-specific idle/DPMS hooks; Qt Quick embedding; secure session-lock
-surfaces; touchscreen input on real hardware; and visual comfort for every user.
-There is no playable mode, audio, general vehicle rigid-body simulation, network
-functionality, telemetry collector or bundled idle daemon.
+No package publication, remote push or system-wide installation was performed.

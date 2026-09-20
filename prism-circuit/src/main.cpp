@@ -23,7 +23,7 @@ struct View {
  SDL_Window* window=nullptr;SDL_GLContext context=nullptr;std::unique_ptr<Renderer> renderer;
  ~View(){if(context&&window)SDL_GL_MakeCurrent(window,context);renderer.reset();if(context)SDL_GL_DeleteContext(context);if(window)SDL_DestroyWindow(window);}
 };
-void help(){std::cout<<R"HELP(PRISM CIRCUIT / AFTERGLOW GRAND PRIX 1.0
+void help(){std::cout<<R"HELP(PRISM CIRCUIT / AFTERGLOW GRAND PRIX 1.2
 C++20 autonomous 3D racing screensaver for QindaQt. Not a security locker.
 
   --windowed             Preview window (default)
@@ -35,8 +35,9 @@ C++20 autonomous 3D racing screensaver for QindaQt. Not a security locker.
   --screen N             Select a display, zero based
   --size WxH             Preview/export size, default 1440x810
   --seed N               Reproduce course details and driver decisions
-  --course NAME          prism (3D knot), eight, or aurora
-  --camera NAME          auto (default), chase, front, orbit, overview
+  --course NAME          prism, eight, aurora, bliss, city, or random
+  --camera NAME          auto (default), chase, cockpit, front, orbit,
+                         trackside, pack, overview
   --driver N             Follow a specific racer, 0..7
   --showcase N           Isolated 3D model turntable, 0..7
   --start SECONDS        Simulate to a specific time, 0..7200
@@ -63,6 +64,8 @@ Drivers: 0 CyberPengu, 1 Ducké, 2 Vix (fox), 3 Cache (raccoon),
 Escape exits immediately. Fullscreen also dismisses on activity after a
 one-second startup grace period. No player controls, network or
 telemetry. Existing idle, lock, DPMS and suspend policy stays with QindaQt.
+Preview cameras: C cycles views, A returns to auto, V selects cockpit,
+1..8 select a racer, [ / ] change racer, left-drag orbits, wheel zooms.
 )HELP";}
 }
 int main(int argc,char** argv){
@@ -88,8 +91,8 @@ int main(int argc,char** argv){
    else if(a=="--fps")fps=integer(val(),10,240);
    else if(a=="--size"){auto s=val();auto p=s.find('x');if(p==std::string::npos)throw std::runtime_error("Use --size WIDTHxHEIGHT");width=integer(s.substr(0,p),320,8192);height=integer(s.substr(p+1),180,8192);}
    else if(a=="--seed"){seed=std::uint64_t(number(val(),0,9007199254740991.));haveSeed=true;}
-   else if(a=="--course"){auto s=val();if(s=="prism")course=0;else if(s=="eight")course=1;else if(s=="aurora")course=2;else throw std::runtime_error("Unknown course: "+s);}
-   else if(a=="--camera"){auto s=val();if(s=="auto")options.camera=Camera::Director;else if(s=="chase")options.camera=Camera::Chase;else if(s=="front")options.camera=Camera::Front;else if(s=="orbit")options.camera=Camera::Orbit;else if(s=="overview")options.camera=Camera::Overview;else throw std::runtime_error("Unknown camera: "+s);}
+   else if(a=="--course"){auto s=val();if(s=="prism")course=0;else if(s=="eight")course=1;else if(s=="aurora")course=2;else if(s=="bliss")course=3;else if(s=="city")course=4;else if(s=="random")course=-1;else throw std::runtime_error("Unknown course: "+s);}
+   else if(a=="--camera"){auto s=val();if(s=="auto")options.camera=Camera::Director;else if(s=="chase")options.camera=Camera::Chase;else if(s=="front")options.camera=Camera::Front;else if(s=="orbit")options.camera=Camera::Orbit;else if(s=="overview")options.camera=Camera::Overview;else if(s=="cockpit")options.camera=Camera::Cockpit;else if(s=="trackside")options.camera=Camera::Trackside;else if(s=="pack")options.camera=Camera::Pack;else throw std::runtime_error("Unknown camera: "+s);}
    else if(a=="--driver")options.focus=integer(val(),0,7);
    else if(a=="--showcase"){options.gallery=true;options.galleryId=integer(val(),0,7);}
    else if(a=="--start")start=number(val(),0,7200);
@@ -109,12 +112,13 @@ int main(int argc,char** argv){
    else throw std::runtime_error("Unknown option: "+a);
   }
   if(!haveSeed)seed=std::random_device{}();
+  if(course<0)course=int(seed%CourseCount);
   if((frames>0)!=(!raw.empty()))throw std::runtime_error("Use --frames and --raw together");
   if(!exportDir.empty()){exportModels(exportDir,seed,course);std::cout<<"Models exported to "<<exportDir<<'\n';return 0;}
   Race race(seed,course);
   if(logSeconds>=0){
    race.advance(logSeconds);const auto& c=race.counters;
-   std::cout<<"{\"seed\":"<<seed<<",\"seconds\":"<<logSeconds<<",\"course_length_m\":"<<race.track.length<<",\"ticks\":"<<c.ticks<<",\"overtakes\":"<<c.passes<<",\"boosts\":"<<c.boosts<<",\"rounds\":"<<c.rounds<<",\"soft_contacts\":"<<c.contacts<<",\"pickups\":"<<c.pickups<<",\"items_used\":"<<c.itemsUsed<<",\"shield_blocks\":"<<c.blocks<<"}\n";return 0;
+   std::cout<<"{\"seed\":"<<seed<<",\"seconds\":"<<logSeconds<<",\"course_length_m\":"<<race.track.length<<",\"ticks\":"<<c.ticks<<",\"overtakes\":"<<c.passes<<",\"boosts\":"<<c.boosts<<",\"rounds\":"<<c.rounds<<",\"soft_contacts\":"<<c.contacts<<",\"pickups\":"<<c.pickups<<",\"items_used\":"<<c.itemsUsed<<",\"shield_blocks\":"<<c.blocks<<",\"hits\":"<<c.hits<<",\"spinouts\":"<<c.spinouts<<",\"knockouts\":"<<c.knockouts<<",\"rescues\":"<<c.rescues<<",\"projectiles_fired\":"<<c.shots<<",\"traps_hit\":"<<c.trapsHit<<",\"camera_cuts\":"<<c.cameraCuts<<"}\n";return 0;
   }
   bool exporting=!snapshot.empty()||frames>0;if(exporting){all=false;fullscreen=false;}
   if(fullscreen||listScreens){
@@ -159,6 +163,20 @@ int main(int argc,char** argv){
     if(ev.type==SDL_QUIT||(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE))done=true;
     if(ev.type==SDL_DISPLAYEVENT)done=true;
     if(ev.type==SDL_WINDOWEVENT&&ev.window.event==SDL_WINDOWEVENT_CLOSE)done=true;
+    if(!fullscreen&&!exporting){
+     if(ev.type==SDL_KEYDOWN&&!ev.key.repeat){int key=ev.key.keysym.sym;
+      if(key=='c')options.camera=Camera((int(options.camera)+1)%8);
+      if(key=='a'){options.camera=Camera::Director;options.focus=-1;options.zoom=1;}
+      if(key=='v')options.camera=Camera::Cockpit;
+      if(key>='1'&&key<='8')options.focus=key-'1';
+      if(key==']')options.focus=(frame.focus+1)%8;
+      if(key=='[')options.focus=(frame.focus+7)%8;
+     }
+     if(ev.type==SDL_MOUSEMOTION&&(ev.motion.state&1)){
+      options.camera=Camera::Orbit;options.orbitYaw-=ev.motion.xrel*.006f;options.orbitPitch=clamp(options.orbitPitch+ev.motion.yrel*.004f,-.4f,1.2f);
+     }
+     if(ev.type==SDL_MOUSEWHEEL)options.zoom=clamp(options.zoom*std::exp(-ev.wheel.y*.10f),.55f,2.6f);
+    }
     if(fullscreen&&elapsed>1){
      if(ev.type==SDL_MOUSEMOTION){movement+=std::abs(ev.motion.xrel)+std::abs(ev.motion.yrel);if(movement>12)done=true;}
      if(ev.type==SDL_KEYDOWN||ev.type==SDL_MOUSEBUTTONDOWN||ev.type==SDL_MOUSEWHEEL||ev.type==SDL_FINGERDOWN)done=true;
