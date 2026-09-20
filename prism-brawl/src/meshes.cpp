@@ -54,27 +54,6 @@ void initialize(Frame& f){
  f.batches[Ribbon].mesh=parametric("flight-scarf",28,6,[](float u,float v){return V3{-u*2.0f,-.10f*u,std::sin(v*pi)*.08f+(v-.5f)*.40f*(1-u*.28f)};});
 
  f.batches[Ear].mesh=parametric("sculpted-ear",16,16,[](float u,float v){float a=v*2*pi;float r=(1-u)*(.52f+.12f*std::sin(u*pi));return V3{std::cos(a)*r,u*1.6f,std::sin(a)*r*.48f};});
- f.batches[Terrain].mesh=parametric("layered-hillside",64,28,[](float u,float v){
-  float x=u*2-1,z=v*2-1;
-  float y=.46f*std::sin(x*2.1f+z*.7f)+.22f*std::cos(x*4.6f-z*1.6f)+.12f*std::sin(z*3)+.035f*std::cos(x*9+z*5);
-  return V3{x,y,z};
- },true);
- f.batches[Fold].mesh=parametric("mineral-ribbon",72,14,mineralFold,true);
- f.batches[Leaf].mesh=parametric("botanical-blade",10,6,[](float u,float v){
-  float width=std::sin(u*pi)*.35f;
-  return V3{(v*2-1)*width,u,.18f*std::sin(u*pi)+.06f*std::abs(v*2-1)};
- });
- f.batches[RoadSurface].mesh=parametric("arena-deck",24,8,[](float u,float v){return V3{u*2-1,0,v*2-1};},true);
- Mesh crystal;crystal.name="faceted-crystal";
- auto triangle=[&](V3 a,V3 b,V3 c){unsigned first=crystal.v.size();V3 normal=unit(cross(b-a,c-a));
-  crystal.v.push_back({a,normal,{0,0}});crystal.v.push_back({b,normal,{1,0}});crystal.v.push_back({c,normal,{.5f,1}});
-  crystal.ix.insert(crystal.ix.end(),{first,first+1,first+2});};
- for(int k=0;k<6;++k){float a=k*pi/3,b=(k+1)*pi/3;
-  V3 lo{.80f*std::cos(a),-.45f,.80f*std::sin(a)},next{.80f*std::cos(b),-.45f,.80f*std::sin(b)};
-  V3 hi{.55f*std::cos(a),.70f,.55f*std::sin(a)},top{.55f*std::cos(b),.70f,.55f*std::sin(b)};
-  triangle(lo,hi,next);triangle(next,hi,top);triangle(hi,{.12f,1.8f,0},top);triangle(next,{-.05f,-1.2f,0},lo);
- }
- f.batches[Crystal].mesh=crystal;
 }
 void add(Frame& f,Primitive p,M4 model,Material mat){f.batches[p].instances.push_back({model,{mat.color.x,mat.color.y,mat.color.z,mat.emission},{mat.rough,mat.metal,mat.kind,0}});}
 }

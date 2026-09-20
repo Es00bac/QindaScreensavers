@@ -1,0 +1,60 @@
+newmtl part_0
+Kd 0.065 0.045 0.08
+Ke 0 0 0
+Ks 0.82 0.82 0.82
+Ns 164
+
+newmtl part_1
+Kd 0.004 0.009 0.016
+Ke 0 0 0
+Ks 0.45 0.45 0.45
+Ns 187
+
+newmtl part_2
+Kd 1 0.23 0.07
+Ke 6 1.38 0.42
+Ks 0 0 0
+Ns 160
+
+newmtl part_3
+Kd 1 0.1 0.065
+Ke 3 0.3 0.195
+Ks 0.2 0.2 0.2
+Ns 150
+
+newmtl part_4
+Kd 0.42 0.2 1
+Ke 1.05 0.5 2.5
+Ks 0.2 0.2 0.2
+Ns 140
+
+newmtl part_5
+Kd 0.42 0.2 1
+Ke 1.05 0.5 2.5
+Ks 0.2 0.2 0.2
+Ns 140
+
+newmtl part_6
+Kd 0.42 0.2 1
+Ke 1.05 0.5 2.5
+Ks 0.2 0.2 0.2
+Ns 140
+
+newmtl part_7
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_8
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+
+newmtl part_9
+Kd 0.18 0.25 0.3
+Ke 0 0 0
+Ks 0.78 0.78 0.78
+Ns 136
+

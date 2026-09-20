@@ -1,0 +1,9 @@
+build/
+build-*/
+.cache/
+.codex/
+.agents/
+__pycache__/
+*.pyc
+*.blend1
+*.blend2

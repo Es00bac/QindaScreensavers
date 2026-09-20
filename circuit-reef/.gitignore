@@ -1,0 +1,5 @@
+*.bgra
+build*/
+build/
+CMakeUserPresets.json
+*.mp4

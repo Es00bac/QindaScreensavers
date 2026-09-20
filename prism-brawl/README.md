@@ -1,67 +1,5 @@
 # Prism Brawl
 
-## 1.2.1 · Randomized screensaver stages
-
-Every normal automatic launch starts on a randomly chosen arena different from
-the previous launch's starting arena. Matches then use shuffled groups of all
-seven stages, with no immediate repeats even when a new group begins.
-
-The saver remembers one stage key in
-`${XDG_STATE_HOME:-$HOME/.local/state}/prism-brawl/last-starting-stage`.
-`--seed N` keeps reproducible playback and bypasses that history;
-`--stage NAME` pins an arena. Captures, exports, showcases, benchmarks and
-headless checks do not change the remembered stage. If state storage is
-unavailable, startup still works with a random arena.
-
-## 1.2.0 · Seven wallpaper-inspired arenas
-
-Four new environments join three rebuilt arenas, taking their colors, scenery
-and lighting from the Pengu and Ducké wallpapers in Downloads and the installed
-QindaQt collection. Bliss Circuit has rolling hills and reclaimed hardware;
-Compile Club has warm workbenches, jade terminals, steam and a spinning desk fan;
-Aurora Glacier has an ice lake, crystal peaks and moving aurora curtains;
-Azure Fold has broad animated blue mineral ribbons and porcelain decks.
-
-Prism Terminal now has a dimensional orbital gate and an obsidian eclipse sky.
-Reactor Garden grows layered foliage around its moving platforms. Afterglow
-Rooftop adds a deeper neon skyline, rain, passing traffic and rooftop machinery.
-All seven shuffle automatically between matches.
-
-[Arena gallery](previews/Prism_Brawl_Stages.png) ·
-[Arena film](previews/Prism_Brawl_Stages.mp4) ·
-[References and stage details](docs/STAGES.md)
-
-```sh
-./build/prism-brawl --list-stages
-./build/prism-brawl --windowed --stage compile
-```
-
-## Full-body animation update
-
-The fighters now wind up, twist, kick, roll, flail and tumble as complete rigs.
-Heavy hits drive directional airborne spins, open-handed panic, impact holds
-and smoke trails; hard landings compress the body into a braced pose and kick
-up dust. Light hits, blocked attacks, broken shields and near misses have
-different reactions. Eyes, brows, mouths, ears, gills, tails and the scarf follow
-the performance, with smoothly interpolated torso, head and limb targets.
-
-Eight signature taunts include a hammer salute, sunglasses adjustment, fox bow,
-raccoon laugh, rabbit dance, cat paw flick, panda chest drums and axolotl wave.
-Fighters also beckon and slow-clap, react to opponents' challenges, celebrate
-knockouts and wins, and slump after a loss. Taunts use safe gaps in combat and
-can be interrupted by danger. Jab, heavy and aerial attacks have three pose
-variations, and all eight specials have individual body choreography.
-
-[Watch the animation reel](previews/Prism_Brawl_Animation.mp4) ·
-[Pose examples](validation/animation/pose-review.jpg) ·
-[Implementation and validation](docs/ANIMATION.md)
-
-```sh
-./build/prism-brawl --windowed
-# Inspect a fighter's moves, taunts, launches and landings up close.
-./build/prism-brawl --showcase 4 --animation-demo --mute
-```
-
 
 ## 1.1.0 refinement
 
@@ -78,10 +16,9 @@ cyber-animal characters from Prism Circuit fight autonomous matches on original
 floating arenas. This executable simulates the combat and renders the models.
 It does not display the earlier generated concept picture or play a movie.
 
-The 1.2.0 arenas were captured with the native OpenGL renderer on AMD Radeon
-graphics under Linux/X11. See [the stage validation](docs/STAGES.md) for current
-checks and [the original validation report](docs/TESTING.md) for the initial
-release's test boundary.
+**Compiled and exercised on Linux/X11 with Mesa llvmpipe.** Native Wayland and
+physical-GPU/multi-monitor operation have not been verified here. See
+[the validation report](docs/TESTING.md) for the exact test boundary.
 
 **Visual screensaver, not a secure session locker.** Your desktop remains
 responsible for idle activation, authentication, suspend and display power.
@@ -90,22 +27,21 @@ responsible for idle activation, authentication, suspend and display power.
 
 [Watch the actual-renderer preview](previews/Prism_Brawl_Preview.mp4) ·
 [Meet the fighters](previews/Prism_Brawl_Fighters.png) ·
-[The seven arenas](previews/Prism_Brawl_Stages.png)
+[The three arenas](previews/Prism_Brawl_Arenas.png)
 
 ## Build and run
 
-Requirements: Linux, a C++20 compiler, CMake 3.20+, Qt 6.4+ Gui, LayerShellQt,
-SDL2 2.0.18+, Cairo, and a working desktop OpenGL 3.3 core implementation. Keep
-the suite's adjacent `common/` directory. SDL2 must support the video
+Requirements: Linux, a C++20 compiler, CMake 3.20+, SDL2 2.0.18+, Cairo, and a
+working desktop OpenGL 3.3 core implementation. SDL2 must support the video
 backend you use. Cairo draws the small interface labels and writes PNG captures;
 the entire 3D scene is rendered by OpenGL.
 
-Python, ffmpeg, a browser, a game engine, an account and external image packs
+Qt, Python, ffmpeg, a browser, a game engine, an account and external image packs
 are **not runtime requirements**. Python and ffmpeg are optional preview-export
 tools only.
 
 ```sh
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 ninja -C build $(portageq envvar MAKEOPTS)
 ctest --test-dir build --output-on-failure
 ./build/prism-brawl --windowed
@@ -139,9 +75,8 @@ An optional dynamically linked Linux x86-64 test executable is included in
 ./build/prism-brawl --reduced-motion --camera fixed
 ```
 
-`--stage auto` is the default and shuffles the arenas after each match. Other
-choices are `prism`, `garden`, `rooftop`, `bliss`, `compile`, `aurora` and `azure`.
-`--camera auto` follows the active
+`--stage auto` is the default and advances the arena after each match. Other
+choices are `prism`, `garden` and `rooftop`. `--camera auto` follows the active
 field smoothly; `fixed` keeps a wider stationary composition; `close` moves in.
 `--screen N` selects one output when not using `--all-screens`.
 
@@ -205,19 +140,15 @@ The actors remain on a two-dimensional combat plane; the art, lighting, camera
 and environments are fully 3D. This is an arcade platform fighter, not ragdoll
 physics, a full playable game or a reproduction of Melee's exact mechanics.
 
-## Seven original arenas
+## Three original arenas
 
 | Stage | Distinct environment |
 |---|---|
-| **Prism Terminal** | Obsidian decks, a dimensional mint/copper orbital gate, spires and an eclipse sky. |
-| **Reactor Garden** | Layered circuit-tree foliage, hydroponic channels, fireflies and sliding side platforms. |
-| **Afterglow Rooftop** | Rain, layered neon city towers, rooftop machinery and passing distant traffic. |
-| **Bliss Circuit** | Sunlit hills, flowers, reclaimed computers and a distant skyline; staggered upper decks. |
-| **Compile Club** | Warm workshop lamps, server racks, steaming coffee and a desk fan; a vertical central lift. |
-| **Aurora Glacier** | Fractured ice, crystalline mountains, an ice lake and aurora curtains; drifting side decks. |
-| **Azure Fold** | Broad flowing blue mineral ribbons, floating porcelain stones and a gliding upper deck. |
+| **Prism Terminal** | Machined prismatic floor, three upper platforms, a large segmented halo and floating crystal hardware. |
+| **Reactor Garden** | Bioluminescent circuit trees, drifting motes, green reactor accents and slowly sliding side platforms. |
+| **Afterglow Rooftop** | A deeper urban skyline, aerial pylons, rings of rooftop hardware and passing distant vehicles. |
 
-All seven use a readable main platform and three one-way upper platforms. Their
+All three use a readable main platform and three one-way upper platforms. Their
 layouts are authored, not copied from a Nintendo stage. Scenery variations are
 seeded. There is no unbounded procedural platform network.
 
@@ -229,8 +160,8 @@ camera framing. Gaits follow traveled distance; hands, legs, body lean, head
 motion, eyes, ears, gills, tails and scarf animation are evaluated continuously.
 The hammer stays attached to its animated hand.
 
-Attack poses ease through smoothed joint targets rather than switching whole-body
-sprite frames. Impacts deliberately include a short 35–59 ms hit hold. Recovery,
+Attack poses ease through smoothed channels rather than switching whole-body
+sprite frames. Impacts deliberately include a short 35 ms hit hold. Recovery,
 launch trails, shield outlines and contact sparks are anchored to world-space
 actors. Respawn appearance uses a visible materialization effect. Match resets
 occur beneath a dark fade. A narrow/portrait output widens the vertical field of
@@ -263,13 +194,11 @@ topology changes recreate only the affected fullscreen windows.
 ## Source, assets and installation
 
 The source is the editable master. `src/battle.cpp` contains the simulation;
-`src/animation.cpp` choreographs the poses and reactions; `src/models.cpp`
-contains the character rigs; `src/stages.cpp` builds the arenas and
-`src/director.cpp` composes the spectator view. The material and post-processing
-code lives in `shaders/`.
+`src/models.cpp` contains the character rigs; `src/director.cpp` builds the arenas
+and spectator view. The material and post-processing code lives in `shaders/`.
 CMake embeds the shaders into the executable and tracks shader edits.
 
-Fifteen OBJ/MTL sets are provided: all eight fighters and seven arena platform
+Eleven OBJ/MTL sets are provided: all eight fighters and three arena platform
 assemblies. They are static geometry exports, not runtime requirements. OBJ does
 not retain the live hierarchy, animation, shader effects or whole backgrounds.
 The C++ source retains all of those. No font files or third-party library binaries

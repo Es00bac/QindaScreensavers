@@ -7,7 +7,7 @@ namespace {
 float approach(float x,float target,float speed){return x+clamp(target-x,-speed,speed);}
 float reach(float a,float b,float rate,float dt){return a+(b-a)*(1-std::exp(-rate*dt));}
 bool offensive(Action a){return a==Action::Jab||a==Action::Heavy||a==Action::Aerial||a==Action::Grab;}
-bool busy(Action a){return offensive(a)||a==Action::Special||a==Action::Dodge||a==Action::Recovery||a==Action::Taunt||a==Action::Land;}
+bool busy(Action a){return offensive(a)||a==Action::Special||a==Action::Dodge||a==Action::Recovery;}
 float mass(int id){constexpr float m[]={1.05f,.90f,.93f,1.04f,.83f,.89f,1.12f,.87f};return m[id];}
 float speed(int id){constexpr float s[]={6.2f,6.9f,7.5f,6.4f,7.2f,7.1f,5.8f,6.7f};return s[id];}
 }
@@ -35,45 +35,23 @@ Move move(Action a,int id){
  if(a==Action::Grab)m={.67f,.16f,.23f,9,7.6f,.72f,.88f,.70f};
  if(a==Action::Dodge)m={.42f,0,.34f,0,0,0,0,0};
  if(a==Action::Recovery)m={.62f,0,.45f,0,0,0,0,0};
- if(a==Action::Taunt)m={1.65f,0,0,0,0,0,0,0};
- if(a==Action::Land)m={.29f,0,0,0,0,0,0,0};
  m.damage*=id==6?1.13f:id==4?.88f:1;return m;
 }
 std::array<Platform,4> platforms(int stage,double time){
  float t=std::fmod(time,4096.);
  if(stage==1)return {{{0,0,11.8f,3.7f,true},{-6+.8f*std::sin(t*.38f),3.3f,2.6f,1.65f,false},{6+.8f*std::sin(t*.38f+pi),3.3f,2.6f,1.65f,false},{0,6.4f,2.6f,1.7f,false}}};
  if(stage==2)return {{{0,0,11.8f,3.7f,true},{-7,2.8f,2.4f,1.55f,false},{7,2.8f,2.4f,1.55f,false},{0,5.8f,2.9f,1.7f,false}}};
- if(stage==3)return {{{0,0,11.8f,3.8f,true},{-6.8f,2.45f,2.45f,1.7f,false},{6.3f,4.25f,2.45f,1.7f,false},{-.6f,6.9f,2.2f,1.65f,false}}};
- if(stage==4)return {{{0,0,11.8f,3.8f,true},{-6.8f,3.2f,2.65f,1.7f,false},{6.8f,3.2f,2.65f,1.7f,false},{0,5.9f+.65f*std::sin(t*.43f),2.5f,1.7f,false}}};
- if(stage==5)return {{{0,0,11.8f,3.9f,true},{-6.2f+.75f*std::sin(t*.28f),3.f,2.65f,1.7f,false},{6.2f-.75f*std::sin(t*.28f),4.1f,2.65f,1.7f,false},{0,6.8f,2.35f,1.7f,false}}};
- if(stage==6)return {{{0,0,11.8f,3.7f,true},{-6.7f,4.f,2.3f,1.6f,false},{6.7f,2.8f,2.8f,1.7f,false},{1.1f*std::sin(t*.26f),6.6f,2.6f,1.7f,false}}};
  return {{{0,0,11.8f,3.7f,true},{-5.7f,3.5f,2.7f,1.6f,false},{5.7f,3.5f,2.7f,1.6f,false},{0,6.9f,2.5f,1.7f,false}}};
 }
-const char* stageName(int id){return Stages.at(id).name;}
-Battle::Battle(std::uint64_t seed,int stage,int count,int firstStage):rng_(seed),stageRng_(seed^0xb47a11e5ULL),seed_(seed),stageChoice_(stage),count_(count),firstStage_(firstStage){
+const char* stageName(int id){return id==1?"REACTOR GARDEN":id==2?"AFTERGLOW ROOFTOP":"PRISM TERMINAL";}
+Battle::Battle(std::uint64_t seed,int stage,int count):rng_(seed),seed_(seed),stageChoice_(stage),count_(count){
  if(count!=2&&count!=4&&count!=8)throw std::runtime_error("Fighter count must be 2, 4 or 8");
- if(stage< -1||stage>=StageCount)throw std::runtime_error("Stage out of range");
- if(firstStage< -1||firstStage>=StageCount)throw std::runtime_error("Starting stage out of range");
+ if(stage< -1||stage>2)throw std::runtime_error("Stage out of range");
  reset(0,0);previous_=current_;
 }
 void Battle::reset(unsigned round,double globalTime){
- int nextStage=stageChoice_;
- if(stageChoice_<0){
-  if(round%StageCount==0){
-   std::iota(stageOrder_.begin(),stageOrder_.end(),0);
-   for(int i=StageCount-1;i>0;--i)std::swap(stageOrder_[i],stageOrder_[stageRng_.next()%(i+1)]);
-   if(round==0&&firstStage_>=0){
-    auto first=std::find(stageOrder_.begin(),stageOrder_.end(),firstStage_);
-    std::iter_swap(stageOrder_.begin(),first);
-   }else if(round>0&&stageOrder_[0]==current_.stage){
-    // A new shuffled bag must not immediately repeat the previous arena.
-    std::swap(stageOrder_[0],stageOrder_[1+stageRng_.next()%(StageCount-1)]);
-   }
-  }
-  nextStage=stageOrder_[round%StageCount];
- }
  current_=BattleState{};current_.round=round;current_.time=globalTime;current_.active=count_;
- current_.stage=nextStage;rng_=Random(seed_+round*191099);
+ current_.stage=stageChoice_<0?int((round+seed_%3)%3):stageChoice_;rng_=Random(seed_+round*191099);
  std::array<int,8> order{0,1,2,3,4,5,6,7};
  // The first two rounds show the entire familiar cast; subsequent pairs shuffle it.
  if(round>=2){Random r(seed_+(round/2)*17171);for(int i=7;i>0;--i)std::swap(order[i],order[r.next()%(i+1)]);}
@@ -81,55 +59,31 @@ void Battle::reset(unsigned round,double globalTime){
   auto& f=current_.fighters[i];f.id=order[(i+(round*count_)%8)%8];
   f.x=(i-(count_-1)*.5f)*std::min(4.0f,18.f/count_);f.face=f.x<0?1:-1;f.anim.yaw=f.face*.93f;
   f.decision=rng_.range(.03,.3);f.invulnerable=.3f;
-  f.action=Action::Taunt;f.actionTime=-i*.07f;f.gesture=0;f.tauntCooldown=4+i*.37f;++counters.taunts;
  }
  nextPickup_=11;previous_=current_;++counters.rounds;
 }
 void Battle::effect(V3 pos,int kind,int id,V3 velocity){
  if(current_.effects.size()>=192)current_.effects.erase(current_.effects.begin());
- current_.effects.push_back({pos,velocity,0,kind==2?1.05f:kind==4?.85f:kind==8?.62f:kind==7?.40f:.48f,kind,id});
+ current_.effects.push_back({pos,velocity,0,kind==2?1.05f:kind==4?.85f:.48f,kind,id});
 }
-void Battle::react(int i,Reaction reaction,float duration){
- auto& f=current_.fighters[i];f.reaction=reaction;f.reactionTime=f.reactionDuration=duration;++counters.reactions;
-}
-void Battle::begin(int i,Action a){
- if(a==Action::Jump)cue(saver::Cue::Jump,i);
- auto& f=current_.fighters[i];f.action=a;f.actionTime=0;f.hits=0;f.projectileMade=false;
- f.spinStart=f.anim.tumble;
- if(offensive(a))f.variant=int((f.moveSerial++ + unsigned(f.id))%3);
- if(a==Action::Taunt){
-  f.gesture=int(f.tauntSerial++%3);f.tauntCooldown=5.0f+rng_.range(0,3.5f);f.tauntPending=false;++counters.taunts;
-  if(f.target>=0&&current_.fighters[f.target].reactionTime<=0)react(f.target,Reaction::Challenge,.85f);
- }
- if(a==Action::Celebrate){f.gesture=0;react(i,Reaction::Happy,5.5f);}
-}
+void Battle::begin(int i,Action a){if(a==Action::Jump)cue(saver::Cue::Jump,i);auto& f=current_.fighters[i];f.action=a;f.actionTime=0;f.hits=0;f.projectileMade=false;}
 void Battle::hit(int from,int to,float damage,float launch,float dx,float lift,bool bypass){
  auto& f=current_.fighters[to];if(f.stocks<=0||f.respawn>0||f.invulnerable>0)return;
- if(f.action==Action::Dodge&&f.actionTime>.03f&&f.actionTime<.31f){if(f.reactionTime<.1f)react(to,Reaction::NearMiss,.4f);return;}
+ if(f.action==Action::Dodge&&f.actionTime>.03f&&f.actionTime<.31f)return;
  if(f.action==Action::Shield&&f.shield>.02f&&!bypass){
   f.shield=std::max(0.f,f.shield-damage*.018f);f.vx+=dx*1.5f;++counters.blocks;cue(saver::Cue::Shield,to);
   effect({f.x,f.y+1.2f,.2f},1,f.id);
-  react(to,Reaction::Block,.28f);
-  if(f.shield<=.02f){f.stun=1.2f;f.launchPower=f.spinVelocity=0;begin(to,Action::Hurt);react(to,Reaction::Dizzy,1.2f);effect({f.x,f.y+1.3f,0},3,f.id);}return;
+  if(f.shield<=.02f){f.stun=1.2f;begin(to,Action::Hurt);effect({f.x,f.y+1.3f,0},3,f.id);}return;
  }
  f.damage=std::min(350.f,f.damage+damage);f.lastHit=from;
  float power=(launch+f.damage*.155f)/mass(f.id);power=std::min(power,37.f);
  f.vx=dx*power;f.vy=power*lift+2.7f;f.floor=-1;f.drop=0;
- f.launchPower=clamp((power-6)/23);f.spinVelocity=-dx*(5+power*.29f);f.hitDirection=dx>0?1:-1;
- f.stun=std::min(.9f,.11f+power*.018f);f.hitstop=.035f+.024f*f.launchPower;f.invulnerable=.105f;begin(to,Action::Hurt);
- react(to,f.launchPower>.4f?Reaction::Launched:Reaction::Hit,f.stun+.35f);
- if(f.launchPower>.18f)++counters.tumbles;
- f.anim.impact=1;f.trailClock=0;
- // Commit the first whole-body flinch before the impact hold freezes it.
- animateFighter(f,.025f,current_.roundTime);
- if(from>=0&&from<current_.active){auto& attacker=current_.fighters[from];
-  if(std::abs(attacker.x-f.x)<3.4f)attacker.hitstop=std::max(attacker.hitstop,.018f+.018f*f.launchPower);
- }
- effect({f.x,f.y+1.2f,0},f.launchPower>.4f?6:0,f.id,{dx*2,1,0});++counters.hits;cue(saver::Cue::Hit,to);
+ f.stun=std::min(.9f,.11f+power*.018f);f.hitstop=.035f;f.invulnerable=.105f;begin(to,Action::Hurt);
+ effect({f.x,f.y+1.2f,0},0,f.id,{dx*2,1,0});++counters.hits;cue(saver::Cue::Hit,to);
 }
 void Battle::think(int i){
  auto& f=current_.fighters[i];const auto& s=current_;
- if(f.stocks<=0||f.respawn>0||f.stun>0||f.hitstop>0||(busy(f.action)&&f.action!=Action::Taunt))return;
+ if(f.stocks<=0||f.respawn>0||f.stun>0||f.hitstop>0||busy(f.action))return;
  const auto ps=platforms(s.stage,s.roundTime);
  int target=-1;float best=1e9f;
  for(int j=0;j<s.active;j++){const auto& o=s.fighters[j];if(i==j||o.stocks<=0||o.respawn>0)continue;
@@ -151,10 +105,6 @@ void Battle::think(int i){
  if(f.action==Action::Shield){if(f.actionTime>.26f&&(rng_.f()<.65f||f.shield<.25f))begin(i,Action::Idle);else return;}
  bool incoming=false;for(const auto& shot:s.shots)if(shot.owner!=i&&std::abs(shot.p.x-f.x)<4&&std::abs(shot.p.y-f.y-1.2f)<1.3f&&(shot.p.x-f.x)*shot.v.x<0)incoming=true;
  bool threat=offensive(o.action)&&std::abs(dx)<3.2f&&std::abs(dy)<2;
- if(f.action==Action::Taunt){
-  if(incoming||threat||std::abs(dx)<3.8f||f.floor<0){begin(i,Action::Idle);react(i,Reaction::NearMiss,.35f);}
-  else return;
- }
  if((threat||incoming)&&rng_.f()<.47f){
   if(f.floor>=0&&f.shield>.3f&&rng_.f()<.70f)begin(i,Action::Shield);
   else {begin(i,Action::Dodge);f.vx=-f.face*7.8f;}
@@ -164,9 +114,6 @@ void Battle::think(int i){
  if((dy>1.5f&&std::abs(dx)<8)||(f.floor<0&&f.vy<0&&dy>1.0f&&std::abs(dx)<4)){
   if(f.jumps>0){f.vy=12.8f;--f.jumps;f.floor=-1;begin(i,Action::Jump);++counters.jumps;return;}}
  if(f.seeking&&std::abs(dx)>1)return;
- // Flourishes happen in safe breathing space or after a KO, never offstage.
- if(f.floor>=0&&std::abs(f.x)<10&&!incoming&&!threat&&!f.seeking&&std::abs(dx)>5.0f&&
-    ((f.tauntPending&&f.tauntCooldown<4)||f.tauntCooldown<=0)&&rng_.f()<.32f){begin(i,Action::Taunt);return;}
  if(f.cooldown>0)return;
  if(f.specialCooldown<=0&&std::abs(dx)<10&&std::abs(dy)<2.5f&&rng_.f()<.26f){begin(i,Action::Special);f.specialCooldown=3.0f+rng_.range(0,1.6f);return;}
  if(std::abs(dx)<2.55f&&std::abs(dy)<1.75f){
@@ -187,17 +134,13 @@ void Battle::step(){
  auto ps=platforms(s.stage,s.roundTime),oldps=platforms(s.stage,s.roundTime-FixedStep);
  for(int i=0;i<s.active;i++){
   auto& f=s.fighters[i];if(f.stocks<=0)continue;
-  if(f.respawn>0){f.respawn=std::max(0.f,f.respawn-dt);if(f.respawn==0){f.x=(i-(s.active-1)*.5f)*2.4f;f.y=10;f.vx=0;f.vy=-1;f.damage=0;f.invulnerable=2.8f;f.floor=-1;f.jumps=2;f.shield=1;f.recoveryUsed=false;f.launchPower=f.spinVelocity=0;f.reaction=Reaction::None;f.reactionTime=0;f.tauntPending=false;f.tauntCooldown=3;begin(i,Action::Jump);f.anim={};f.anim.yaw=f.face*.93f;effect({f.x,10,0},4,f.id);}continue;}
-  for(float* timer:{&f.cooldown,&f.specialCooldown,&f.stun,&f.invulnerable,&f.drop,&f.overclock,&f.tauntCooldown,&f.reactionTime})*timer=std::max(0.f,*timer-dt);
-  if(f.reactionTime<=0)f.reaction=Reaction::None;
+  if(f.respawn>0){f.respawn=std::max(0.f,f.respawn-dt);if(f.respawn==0){f.x=(i-(s.active-1)*.5f)*2.4f;f.y=10;f.vx=0;f.vy=-1;f.damage=0;f.invulnerable=2.8f;f.floor=-1;f.jumps=2;f.shield=1;f.recoveryUsed=false;begin(i,Action::Jump);f.anim={};f.anim.yaw=f.face*.93f;effect({f.x,10,0},4,f.id);}continue;}
+  for(float* timer:{&f.cooldown,&f.specialCooldown,&f.stun,&f.invulnerable,&f.drop,&f.overclock})*timer=std::max(0.f,*timer-dt);
   if(f.hitstop>0){f.hitstop=std::max(0.f,f.hitstop-dt);continue;}
   f.actionTime+=dt;f.anim.land=reach(f.anim.land,0,14,dt);
   if(busy(f.action)&&f.actionTime>move(f.action,f.id).duration){f.cooldown=.11f+rng_.range(0,.10f);begin(i,Action::Idle);}
   if(f.action==Action::Hurt&&f.stun<=0)begin(i,Action::Idle);
-  if(f.floor>=0&&f.action!=Action::Hurt&&f.action!=Action::Land)f.launchPower=reach(f.launchPower,0,6,dt);
-  if(!fighting){f.vx=approach(f.vx,0,dt*16);
-   if(s.finishedAt>=0){Action result=s.winner==i?Action::Celebrate:Action::Defeat;if(f.action!=result)begin(i,result);}
-  }
+  if(!fighting){f.vx=approach(f.vx,0,dt*16);if(s.finishedAt>=0&&s.winner==i)f.action=Action::Celebrate;}
   else{
    f.decision-=dt;if(f.decision<=0){think(i);f.decision=rng_.range(.10,.25);}
    if(f.stun<=0&&f.action!=Action::Dodge&&f.action!=Action::Recovery){
@@ -219,12 +162,7 @@ void Battle::step(){
    if(f.vy<=0){int landed=-1;float high=-100;
     for(int p=0;p<4;p++){const auto& platform=ps[p];if(!platform.solid&&f.drop>0)continue;
      if(oldY>=platform.y-.03f&&f.y<=platform.y&&std::abs(f.x-platform.x)<platform.half+.2f&&platform.y>high){landed=p;high=platform.y;}}
-    if(landed>=0){
-     float impact=std::abs(f.vy);f.y=high;f.anim.land=clamp(impact/23);f.vy=0;f.floor=landed;f.jumps=2;f.recoveryUsed=false;
-     if(impact>10){effect({f.x,high+.04f,0},7,f.id);++counters.hardLandings;
-      if(fighting&&(!busy(f.action)||f.action==Action::Recovery)){begin(i,Action::Land);f.vx*=.65f;}
-     }
-    }
+    if(landed>=0){f.y=high;f.anim.land=std::min(.17f,std::abs(f.vy)*.010f);f.vy=0;f.floor=landed;f.jumps=2;f.recoveryUsed=false;}
    }
   }else{f.y=ps[f.floor].y;f.vy=0;}
   if(f.action==Action::Shield)f.shield=std::max(0.f,f.shield-dt*.17f);else f.shield=std::min(1.f,f.shield+dt*.11f);
@@ -233,29 +171,19 @@ void Battle::step(){
   }
   if((std::abs(f.x)>24||f.y< -11||f.y>23)&&fighting){
    effect({clamp(f.x,-21,21),clamp(f.y,-7,19),0},2,f.id);
-   --f.stocks;++counters.kos;cue(saver::Cue::Knockout,i);if(f.lastHit>=0&&f.lastHit<s.active&&f.lastHit!=i){auto& victor=s.fighters[f.lastHit];++victor.kos;victor.tauntPending=true;victor.tauntCooldown=std::min(victor.tauntCooldown,1.2f);if(victor.stun<=0)react(f.lastHit,Reaction::Happy,1.2f);}
+   --f.stocks;++counters.kos;cue(saver::Cue::Knockout,i);if(f.lastHit>=0&&f.lastHit<s.active&&f.lastHit!=i)++s.fighters[f.lastHit].kos;
    f.respawn=1.2f;f.lastHit=-1;f.stun=f.hitstop=0;f.vx=f.vy=0;continue;
   }
   // Continuous animation channels are smoothed separately from combat transitions.
   auto& a=f.anim;float t=f.actionTime;
   a.gait+=std::abs(f.x-oldX)*4.6f;
   a.walk=reach(a.walk,f.floor>=0&&f.stun<=0?clamp(std::abs(f.vx)/5):0,13,dt);
-  float facing=f.action==Action::Taunt||f.action==Action::Celebrate||f.action==Action::Defeat?f.face*.28f:f.face*.93f;
-  a.yaw=reach(a.yaw,facing,12,dt);
-  if(f.target>=0){const auto& target=s.fighters[f.target];
-   a.look=reach(a.look,clamp((target.x-f.x)*f.face*.15f,-1,1),8,dt);
-   a.lookUp=reach(a.lookUp,clamp((target.y-f.y)*.25f,-1,1),8,dt);
-  }
-  a.brake=reach(a.brake,clamp(f.vx*f.face/8,-1,1),9,dt);
+  a.yaw=reach(a.yaw,f.face*.93f,12,dt);
   auto channel=[&](float& v,float to){v=reach(v,to,28,dt);};
   auto strike=[&](Action type){auto m=move(type,f.id);return f.action==type?ease(0,m.start,t)*(1-ease(m.end,m.duration,t)):0.f;};
   channel(a.punch,strike(Action::Jab));channel(a.heavy,strike(Action::Heavy));channel(a.aerial,strike(Action::Aerial));channel(a.grab,strike(Action::Grab));
   channel(a.shield,f.action==Action::Shield?1.f:0.f);channel(a.duck,f.action==Action::Dodge?std::sin(clamp(t/.42f)*pi):0.f);
   channel(a.recoil,f.stun>0?clamp(std::abs(f.vx)/22+.15f):0.f);channel(a.cast,strike(Action::Special));channel(a.recover,f.action==Action::Recovery?1.f:0.f);channel(a.air,f.floor<0?1.f:0.f);
-  animateFighter(f,dt,s.roundTime);
-  if(f.floor<0&&f.action==Action::Hurt&&f.launchPower>.25f){
-   f.trailClock-=dt;if(f.trailClock<=0){f.trailClock=.055f;effect({f.x,f.y+.9f,-.18f},8,f.id,{-f.vx*.06f,.35f,0});}
-  }
  }
  if(fighting){
   // Gather attacks before resolving them so a simultaneous trade is possible.
@@ -281,7 +209,7 @@ void Battle::step(){
   nextPickup_-=dt;if(nextPickup_<=0){nextPickup_=9;int p=rng_.next()%4;if(s.pickups.size()<3)s.pickups.push_back({ps[p].x,ps[p].y+1.0f,0,int(rng_.next()%3),p});}
   for(auto& item:s.pickups){item.x+=ps[item.platform].x-oldps[item.platform].x;item.y=ps[item.platform].y+1;item.age+=dt;for(int i=0;i<s.active;i++){auto& f=s.fighters[i];if(f.stocks<=0||f.respawn>0)continue;if(std::abs(f.x-item.x)<1&&std::abs(f.y+1-item.y)<1.5f){
    if(item.kind==0)f.damage=std::max(0.f,f.damage-25);else if(item.kind==1)f.overclock=8;else {f.shield=1;f.invulnerable=2.5f;}
-   item.age=31;++counters.pickups;cue(saver::Cue::Pickup,i);if(f.stun<=0)react(i,Reaction::Happy,.8f);effect({item.x,item.y,0},4,f.id);break;}}}
+   item.age=31;++counters.pickups;cue(saver::Cue::Pickup,i);effect({item.x,item.y,0},4,f.id);break;}}}
   std::erase_if(s.pickups,[](const Pickup& p){return p.age>30;});
   int living=0;for(int i=0;i<s.active;i++)living+=s.fighters[i].stocks>0;
   if(living<=1||s.roundTime>=92.6){
@@ -304,7 +232,7 @@ void Battle::advance(double seconds){
  accumulator_-=steps*FixedStep;if(accumulator_<0)accumulator_=0;
  for(std::uint64_t i=0;i<steps;i++)step();
 }
-void Battle::seek(double time){if(!std::isfinite(time)||time<0||time>86400)throw std::runtime_error("Invalid simulation time");double total=current_.time+accumulator_;if(time+1e-9<total){*this=Battle(seed_,stageChoice_,count_,firstStage_);total=0;}advance(std::max(0.,time-total));}
+void Battle::seek(double time){if(!std::isfinite(time)||time<0||time>86400)throw std::runtime_error("Invalid simulation time");double total=current_.time+accumulator_;if(time+1e-9<total){*this=Battle(seed_,stageChoice_,count_);total=0;}advance(std::max(0.,time-total));}
 BattleState Battle::sample()const{
  auto s=current_;float a=clamp(float(accumulator_/FixedStep));if(s.round!=previous_.round)return s;
  auto lerp=[a](float x,float y){return x+(y-x)*a;};
@@ -316,9 +244,7 @@ BattleState Battle::sample()const{
   auto& b=f.anim;auto& v=p.anim;
 #define BLEND(field) b.field=lerp(v.field,b.field)
   BLEND(gait);BLEND(walk);BLEND(punch);BLEND(heavy);BLEND(aerial);BLEND(shield);BLEND(duck);BLEND(recoil);BLEND(cast);BLEND(recover);BLEND(grab);BLEND(air);BLEND(land);BLEND(yaw);
-  BLEND(tumble);BLEND(impact);BLEND(taunt);BLEND(celebrate);BLEND(look);BLEND(lookUp);BLEND(brake);
 #undef BLEND
-  b.pose=blendPose(v.pose,b.pose,a);
  }
  for(auto& p:s.shots){float back=float(FixedStep)*(1-a);p.p=p.p-p.v*back;p.age=std::max(0.f,p.age-back);}
  s.cameraTarget=mix(previous_.cameraTarget,current_.cameraTarget,a);s.cameraDistance=lerp(previous_.cameraDistance,current_.cameraDistance);
