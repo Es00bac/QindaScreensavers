@@ -31,3 +31,12 @@ if(REEF_BUILD_QML_MODULE)
       "${CMAKE_CURRENT_BINARY_DIR}/qml/QindaQt/CircuitReef/circuit-reef-qml.qmltypes"
     DESTINATION "${REEF_QML_INSTALL_DIR}/QindaQt/CircuitReef")
 endif()
+
+if(BUILD_TESTING)
+  find_package(Qt6 6.4 REQUIRED COMPONENTS Test)
+  add_executable(reef-qml-palette-test ../tests/test_qml_palette.cpp)
+  set_target_properties(reef-qml-palette-test PROPERTIES AUTOMOC ON)
+  target_link_libraries(reef-qml-palette-test PRIVATE circuit-reef-qt Qt6::Test)
+  add_test(NAME reef-qml-palette COMMAND reef-qml-palette-test)
+  set_tests_properties(reef-qml-palette PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen;QT_FATAL_WARNINGS=1")
+endif()

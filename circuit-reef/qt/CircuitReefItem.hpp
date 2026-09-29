@@ -20,7 +20,9 @@ class CircuitReefItem : public QQuickPaintedItem {
  Q_PROPERTY(bool privateMetrics READ privateMetrics WRITE setPrivateMetrics NOTIFY privateMetricsChanged)
  Q_PROPERTY(bool reducedMotion READ reducedMotion WRITE setReducedMotion NOTIFY reducedMotionChanged)
  Q_PROPERTY(quint32 seed READ seed WRITE setSeed NOTIFY seedChanged)
- Q_PROPERTY(QString palette READ palette WRITE setPalette NOTIFY paletteChanged)
+ // AGENT-GUARD: Qt 6.11 Item owns palette; a QString override aborts
+ // strict native locker imports. See docs/ADR-0001-qt611-palette-property.md.
+ Q_PROPERTY(QString reefPalette READ reefPalette WRITE setReefPalette NOTIFY reefPaletteChanged)
  Q_PROPERTY(double brightness READ brightness WRITE setBrightness NOTIFY brightnessChanged)
 public:
  explicit CircuitReefItem(QQuickItem* parent=nullptr);
@@ -29,12 +31,12 @@ public:
  bool privateMetrics()const{return private_;}void setPrivateMetrics(bool);
  bool reducedMotion()const{return reduced_;}void setReducedMotion(bool);
  quint32 seed()const{return seed_;}void setSeed(quint32);
- QString palette()const{return palette_;}void setPalette(const QString&);
+ QString reefPalette()const{return palette_;}void setReefPalette(const QString&);
  double brightness()const{return brightness_;}void setBrightness(double);
  Q_INVOKABLE void regenerate();
 signals:
  void activeChanged();void privateMetricsChanged();void reducedMotionChanged();
- void seedChanged();void paletteChanged();void brightnessChanged();
+ void seedChanged();void reefPaletteChanged();void brightnessChanged();
 private:
  void refresh();void updateMonitor();
  bool active_=false,private_=true,reduced_=false;quint32 seed_=2026;

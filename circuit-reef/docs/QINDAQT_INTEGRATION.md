@@ -52,7 +52,7 @@ CircuitReef {
     active: true
     privateMetrics: true
     seed: 2026
-    palette: "lagoon"
+    reefPalette: "lagoon"
     brightness: 0.75
     reducedMotion: false
 }
@@ -69,3 +69,5 @@ The Qt adapter and example have not been compiled here. Review and build them ag
 Circuit Reef does not collect credentials, authenticate users, call PAM, terminate processes, modify kernel parameters, or own a secure session-lock surface. It must not be substituted for a lock screen. Secure lock surfaces have compositor-enforced guarantees that an ordinary fullscreen window does not provide.
 
 If a future QindaQt lock implementation wants to use the scene as decoration, the lock host must retain all security and authentication responsibilities and render it only inside its own trusted surface. The Qt item itself is not a locker.
+
+See [Qt 6.11 palette migration](ADR-0001-qt611-palette-property.md).

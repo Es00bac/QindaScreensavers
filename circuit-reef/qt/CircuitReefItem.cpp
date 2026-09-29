@@ -18,7 +18,7 @@ void CircuitReefItem::setActive(bool v){if(v==active_)return;active_=v;updateMon
 void CircuitReefItem::setPrivateMetrics(bool v){if(v==private_)return;private_=v;updateMonitor();emit privateMetricsChanged();}
 void CircuitReefItem::setReducedMotion(bool v){if(v==reduced_)return;reduced_=v;emit reducedMotionChanged();}
 void CircuitReefItem::setSeed(quint32 v){if(v==seed_)return;seed_=v;renderer_=std::make_unique<reef::Renderer>(seed_,palette_.toStdString());time_=0;emit seedChanged();}
-void CircuitReefItem::setPalette(const QString& v){if(v==palette_)return;try{auto renderer=std::make_unique<reef::Renderer>(seed_,v.toStdString());palette_=v;renderer_=std::move(renderer);emit paletteChanged();}catch(const std::exception&e){qWarning()<<e.what();}}
+void CircuitReefItem::setReefPalette(const QString& v){if(v==palette_)return;try{auto renderer=std::make_unique<reef::Renderer>(seed_,v.toStdString());palette_=v;renderer_=std::move(renderer);emit reefPaletteChanged();}catch(const std::exception&e){qWarning()<<e.what();}}
 void CircuitReefItem::setBrightness(double v){if(!std::isfinite(v))return;v=std::clamp(v,.05,1.0);if(qFuzzyCompare(v,brightness_))return;brightness_=v;emit brightnessChanged();}
 void CircuitReefItem::regenerate(){setSeed(QRandomGenerator::global()->generate());}
 void CircuitReefItem::refresh(){

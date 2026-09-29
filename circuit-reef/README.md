@@ -173,7 +173,7 @@ ninja -C build-qt $(portageq envvar MAKEOPTS)
 ./build-qt/qt/circuit-reef-qt-preview
 ```
 
-The adapter uses `QQuickPaintedItem` with immutable copied frames from the Cairo reference backend. It targets 30 FPS and a 720-pixel render-height cap, not the standalone app's accelerated triangle path. Properties expose active state, privacy, seed, palette, brightness, and reduced motion. It defaults to inactive and private until the host enables it.
+The adapter uses `QQuickPaintedItem` with immutable copied frames from the Cairo reference backend. It targets 30 FPS and a 720-pixel render-height cap, not the standalone app's accelerated triangle path. Properties expose active state, privacy, seed, reefPalette, brightness, and reduced motion. It defaults to inactive and private until the host enables it.
 
 **The optional Qt adapter has not been compiled in the delivery environment**, which has no Qt 6 development packages. The standalone SDL application and both of its rendering paths were compiled and executed. See the integration guide for a host embedding example and the exact testing boundary.
 
@@ -189,3 +189,5 @@ The adapter uses `QQuickPaintedItem` with immutable copied frames from the Cairo
 - `integration/`: desktop launcher; no automatic system configuration changes.
 
 Original project code and generated artwork are provided under GPL-3.0-or-later. Dependencies retain their own licenses. The normal GPL text is in `LICENSE`.
+
+Qt/QML hosts using the old QString palette property must migrate to reefPalette; see [ADR-0001](docs/ADR-0001-qt611-palette-property.md). The CLI --palette option is unchanged.
