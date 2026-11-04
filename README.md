@@ -48,3 +48,20 @@ overlay, with its build configuration unchanged.
 This work covers the visual scenes, behavior, and standalone multi-monitor
 validation. QindaQt lock-screen/screensaver integration is being handled
 separately by Opus. No desktop integration or lock settings were changed here.
+## Screenshots
+
+The five native screensavers, shown with existing development captures. These show the standalone scenes; lock-screen integration is documented separately.
+
+| Circuit Reef — procedural aquarium | Qinda Patrol — autonomous platformer |
+| --- | --- |
+| [![Circuit Reef — procedural aquarium](docs/screenshots/circuit-reef.png)](docs/screenshots/circuit-reef.png) | [![Qinda Patrol — autonomous platformer](docs/screenshots/qinda-patrol.png)](docs/screenshots/qinda-patrol.png) |
+
+| Prism Circuit — autonomous racing | Prism Brawl — arena battles |
+| --- | --- |
+| [![Prism Circuit — autonomous racing](docs/screenshots/prism-circuit.png)](docs/screenshots/prism-circuit.png) | [![Prism Brawl — arena battles](docs/screenshots/prism-brawl.png)](docs/screenshots/prism-brawl.png) |
+
+[![Starward — space scenes](docs/screenshots/starward-reimagined.png)](docs/screenshots/starward-reimagined.png)
+
+Starward — space scenes.
+
+[Capture notes](docs/screenshots/README.md).
